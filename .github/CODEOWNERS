@@ -1,0 +1,35 @@
+# Code Owners Configuration
+# This file defines who needs to approve changes in specific directories
+
+# Global owners for the entire repository
+* @gamerkreten-beep
+
+# Backend team ownership
+/backend/ @gamerkreten-beep
+/prisma/ @gamerkreten-beep
+
+# Frontend team ownership
+/frontend/ @gamerkreten-beep
+
+# Infrastructure team ownership
+.github/ @gamerkreten-beep
+docker/ @gamerkreten-beep
+
+# Documentation team ownership
+docs/ @gamerkreten-beep
+*.md @gamerkreten-beep
+
+# Security team ownership for security-related files
+.env.example @gamerkreten-beep
+*.env* @gamerkreten-beep
+backend/src/middleware/security.ts @gamerkreten-beep
+backend/src/middleware/auth.ts @gamerkreten-beep
+
+# Shared code ownership
+shared/ @gamerkreten-beep
+
+# Configuration files
+*.config.js @gamerkreten-beep
+*.config.ts @gamerkreten-beep
+package.json @gamerkreten-beep
+tsconfig.json @gamerkreten-beep

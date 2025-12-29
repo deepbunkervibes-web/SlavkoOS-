@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super-Deploy Agent | FORMATDISC</title>
+    <meta name="description" content="Deploy from prompt to production in minutes — AI-powered CI/CD that thinks, learns, and optimizes itself.">
+    <meta name="keywords" content="AI tools, CI/CD, deployment, automation, developer tools, Croatia, Zagreb">
+    <link rel="canonical" href="https://www.formatdisc.hr/super-deploy-agent">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Super-Deploy Agent | FORMATDISC">
+    <meta property="og:description" content="Deploy from prompt to production in minutes — AI-powered CI/CD that thinks, learns, and optimizes itself.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.formatdisc.hr/super-deploy-agent">
+    
+    <style>
+        /* Base Styles with Apple-inspired minimalism */
+        :root {
+            --primary-color: #0071e3;
+            --secondary-color: #06c;
+            --text-color: #1d1d1f;
+            --light-text: #86868b;
+            --background: #ffffff;
+            --section-bg: #f5f5f7;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --transition-slow: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --transition-medium: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --transition-fast: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            background: var(--background);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 1.1vw, 1.125rem);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 980px;
+            font-weight: 500;
+            text-align: center;
+            transition: all var(--transition-medium);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all var(--transition-medium);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--text-color);
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+        }
+
+        .mobile-menu-btn span:nth-child(1) {
+            top: 0;
+        }
+
+        .mobile-menu-btn span:nth-child(2), .mobile-menu-btn span:nth-child(3) {
+            top: 9px;
+        }
+
+        .mobile-menu-btn span:nth-child(4) {
+            top: 18px;
+        }
+
+        .mobile-menu-btn.open span:nth-child(1), .mobile-menu-btn.open span:nth-child(4) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu-btn.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 113, 227, 0.1), transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.2s;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+            color: var(--light-text);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--light-text);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.animated {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-medium);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 113, 227, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--section-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(0, 113, 227, 0.1), transparent 70%);
+            z-index: 0;
+        }
+
+        .steps {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .step.animated {
+            animation: fadeInLeft 0.8s forwards;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-right: 2rem;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: var(--background);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .stat-card.animated {
+            animation: scaleIn 0.8s forwards;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--light-text);
+            font-size: 1.125rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--section-bg);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            opacity: 0;
+        }
+
+        .testimonial.animated {
+            animation: fadeIn 1s forwards;
+        }
+
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            color: var(--light-text);
+            font-size: 0.875rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pricing-card.animated {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 3rem;
+            transform: rotate(45deg);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .pricing-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--section-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .faq-item.animated {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: background-color var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-medium), padding var(--transition-medium);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 1000px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--background);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            list-style: none;
+        }
+
+        .contact-links li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-links li i {
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .contact-form.animated {
+            animation: fadeInRight 0.8s forwards;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right var(--transition-medium);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Intersection Observer Animation Trigger */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Format<span>DISC</span></a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Super-Deploy Agent</h1>
+            <p>Deploy from prompt to production in minutes — AI-powered CI/CD that thinks, learns, and optimizes itself.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Get Started</a>
+                <a href="#how-it-works" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Super-Deploy Agent combines cutting-edge AI with robust deployment capabilities to streamline your workflow.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Prompt-to-Production</h3>
+                    <p>Describe what you want to build in natural language, and watch as Super-Deploy Agent creates and deploys your application.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Self-Learning CI/CD</h3>
+                    <p>Our AI continuously improves deployment strategies based on your project's performance and feedback.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning-Fast Deployment</h3>
+                    <p>Deploy to production in minutes, not hours, with optimized build processes and intelligent caching.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Security-First Approach</h3>
+                    <p>Automated security scanning and vulnerability patching keep your applications safe from threats.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">📊</div>
+                    <h3>Intelligent Analytics</h3>
+                    <p>Gain insights into your deployment performance with detailed metrics and AI-powered recommendations.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Seamless Integration</h3>
+                    <p>Works with your existing tools and platforms, including GitHub, GitLab, AWS, Azure, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Super-Deploy Agent simplifies the deployment process from start to finish.</p>
+            </div>
+            <div class="steps">
+                <div class="step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Describe Your Project</h3>
+                        <p>Use natural language to tell Super-Deploy Agent what you want to build and deploy.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Generates Code</h3>
+                        <p>Our advanced AI creates optimized code based on your description and best practices.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Automated Testing</h3>
+                        <p>Comprehensive testing ensures your application works flawlessly before deployment.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>One-Click Deployment</h3>
+                        <p>Deploy to your preferred platform with a single click, with intelligent optimization.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Continuous Improvement</h3>
+                        <p>Super-Deploy Agent learns from each deployment to improve future performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Developers Choose Us</h2>
+                <p>Join thousands of developers who trust Super-Deploy Agent for their deployment needs.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-count="95">0</div>
+                    <div class="stat-label">% Faster Deployments</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-count="10000">0</div>
+                    <div class="stat-label">+ Happy Developers</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-count="99">0</div>
+                    <div class="stat-label">% Uptime Guarantee</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-count="50000">0</div>
+                    <div class="stat-label">+ Successful Deployments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your needs. All plans include core features.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-name">Starter</div>
+                    <div class="pricing-price">$29<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>5 Projects</li>
+                        <li>Basic AI Assistance</li>
+                        <li>Standard Deployment</li>
+                        <li>Email Support</li>
+                        <li>Community Access</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured animate-on-scroll">
+                    <div class="pricing-name">Professional</div>
+                    <div class="pricing-price">$79<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>20 Projects</li>
+                        <li>Advanced AI Features</li>
+                        <li>Priority Deployment</li>
+                        <li>24/7 Support</li>
+                        <li>API Access</li>
+                        <li>Custom Integrations</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-name">Enterprise</div>
+                    <div class="pricing-price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Projects</li>
+                        <li>Full AI Capabilities</li>
+                        <li>Custom Deployment Options</li>
+                        <li>Dedicated Support Team</li>
+                        <li>Advanced Security Features</li>
+                        <li>SLA Guarantees</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about Super-Deploy Agent.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">What is Super-Deploy Agent?</div>
+                    <div class="faq-answer">
+                        <p>Super-Deploy Agent is an AI-powered CI/CD tool that automates the entire deployment process from code generation to production deployment. It uses advanced AI to understand your requirements, generate optimized code, and deploy it to your preferred platform.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">How does the AI code generation work?</div>
+                    <div class="faq-answer">
+                        <p>Our AI has been trained on millions of code repositories and best practices. When you describe what you want to build, it generates optimized code that meets your requirements while following industry standards for security and performance.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">Which platforms do you support for deployment?</div>
+                    <div class="faq-answer">
+                        <p>Super-Deploy Agent supports all major cloud platforms including AWS, Azure, Google Cloud, and Heroku. We also support self-hosted options and can deploy to your own servers or Kubernetes clusters.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">Is my code secure with Super-Deploy Agent?</div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We take security very seriously. All code is scanned for vulnerabilities before deployment, and we use industry-standard encryption for all data in transit and at rest. Your code never leaves your environment without your permission.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">Can I integrate Super-Deploy Agent with my existing tools?</div>
+                    <div class="faq-answer">
+                        <p>Yes, Super-Deploy Agent is designed to integrate seamlessly with your existing development workflow. We support integration with GitHub, GitLab, Bitbucket, Jira, Slack, and many other popular development tools.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <div class="faq-question">How long does it take to set up?</div>
+                    <div class="faq-answer">
+                        <p>Most users are up and running in less than 10 minutes. Our onboarding process guides you through connecting your repositories and configuring your deployment preferences. After that, you can start deploying right away.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions or ready to get started? Contact us today.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Our team is here to help you with any questions or concerns you may have about Super-Deploy Agent.</p>
+                    <ul class="contact-links">
+                        <li>
+                            <i>📍</i>
+                            <span>Zagreb, Croatia</span>
+                        </li>
+                        <li>
+                            <i>📧</i>
+                            <span>info@formatdisc.hr</span>
+                        </li>
+                        <li>
+                            <i>📱</i>
+                            <span>+385 1 234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <form id="contactForm" action="contact.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Your Company">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Super-Deploy Agent</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FormatDISC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for Animation
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Animated Counter
+        function animateCounter(el) {
+            const target = parseInt(el.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / duration * 10;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    clearInterval(timer);
+                    el.textContent = target.toLocaleString();
+                } else {
+                    el.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 10);
+        }
+
+        // Animate counters when they come into view
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        statNumbers.forEach(stat => {
+            counterObserver.observe(stat);
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    alert('There was an error sending your message. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again later.');
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mobileMenuBtn.classList.remove('open');
+                    navLinks.classList.remove('active');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,927 @@
+
+> mvp-simulation-studio@0.0.0 lint
+> eslint "src/**/*.{ts,tsx,js,jsx}" --fix
+
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\App.tsx
+   1:1  error    Resolve error: unable to load resolver "alias"     import/namespace
+   1:1  warning  Resolve error: unable to load resolver "alias"     import/order
+   1:1  warning  Resolve error: unable to load resolver "alias"     import/no-duplicates
+   1:1  error    Resolve error: unable to load resolver "alias"     import/default
+   1:1  warning  Resolve error: unable to load resolver "alias"     import/no-named-as-default
+   1:1  warning  Resolve error: unable to load resolver "alias"     import/no-named-as-default-member
+  18:1  warning  There should be no empty line within import group  import/order
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ChatInterface.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                            import/no-named-as-default-member
+  10:11  error    An empty interface declaration allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead  @typescript-eslint/no-empty-object-type
+  66:7   warning  Unexpected console statement                                                                                                                                                                                                                                                                                                                                                              no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ErrorBoundary.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  23:43  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\EvaluationView.tsx
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/no-duplicates
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/no-named-as-default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     import/no-named-as-default-member
+   13:46  warning  'phase' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  102:27  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\EvaluationView.tsx:102:27
+  100 |
+  101 |   const data = useMemo(() => Array.from({ length: 6 }, (_, i) => {
+> 102 |     const randomFactor = (Math.random() - 0.4) * (conversionRate / 10);
+      |                           ^^^^^^^^^^^^^ Cannot call impure function
+  103 |     const baseValue = (conversionRate / 6) * (i + 1);
+  104 |     const value = Math.max(0.5, baseValue + randomFactor);
+  105 |     return i === 5 ? conversionRate : value;  react-hooks/purity
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\GlassCard.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\IdeaInput.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"      import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"      import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"      import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"      import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"      import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"      import/no-named-as-default-member
+   2:39  warning  'Info' is defined but never used                    @typescript-eslint/no-unused-vars
+  45:10  warning  'subtitleIndex' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\MvpPreview.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\MvpStudio.tsx
+    1:1  error    Resolve error: unable to load resolver "alias"                                                                        import/namespace
+    1:1  warning  Resolve error: unable to load resolver "alias"                                                                        import/order
+    1:1  warning  Resolve error: unable to load resolver "alias"                                                                        import/no-duplicates
+    1:1  error    Resolve error: unable to load resolver "alias"                                                                        import/default
+    1:1  warning  Resolve error: unable to load resolver "alias"                                                                        import/no-named-as-default
+    1:1  warning  Resolve error: unable to load resolver "alias"                                                                        import/no-named-as-default-member
+   14:1  warning  There should be no empty line within import group                                                                     import/order
+  160:6  warning  React Hook useCallback has a missing dependency: 'startNewSession'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\PitchDeckView.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\PulsatingBackground.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ResultActions.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\ConfidenceGauge.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\DecisionTreeHologram.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\KernelConsciousnessDashboard.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\NeuralField.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  import/no-named-as-default-member
+  14:25  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\NeuralField.tsx:14:25
+  12 |                 z: -4 + i * 2.5,
+  13 |                 nodes: Array.from({ length: 18 }, () => ({
+> 14 |                     x: (Math.random() - 0.5) * 8,
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  15 |                     y: (Math.random() - 0.5) * 4,
+  16 |                 })),
+  17 |             });  react-hooks/purity
+  15:25  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\NeuralField.tsx:15:25
+  13 |                 nodes: Array.from({ length: 18 }, () => ({
+  14 |                     x: (Math.random() - 0.5) * 8,
+> 15 |                     y: (Math.random() - 0.5) * 4,
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  16 |                 })),
+  17 |             });
+  18 |         }                         react-hooks/purity
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\PhaseTimeline.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\QuantumStateIndicator.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-named-as-default-member
+  8:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\QuantumStateIndicator.tsx:8:13
+   6 |     useEffect(() => {
+   7 |         if (state === 'COLLAPSED') {
+>  8 |             setIsCollapsed(true);
+     |             ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+   9 |             const t = setTimeout(() => setIsCollapsed(false), 2000); // 2s shockwave
+  10 |             return () => clearTimeout(t);
+  11 |         }  react-hooks/set-state-in-effect
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\ThoughtStream.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\investors\LineageMap.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\investors\OrchestrationWall.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"        import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"        import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"        import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"        import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"        import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"        import/no-named-as-default-member
+  1:17  warning  'useEffect' is defined but never used                 @typescript-eslint/no-unused-vars
+  2:29  warning  'useTransform' is defined but never used              @typescript-eslint/no-unused-vars
+  6:13  warning  'scrollXProgress' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\AuditTrail.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\DeploymentControls.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\KernelStatus.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\Terminal.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         import/no-named-as-default-member
+  23:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\Terminal.tsx:23:13
+  21 |                 '[SYSTEM] awaiting authenticated commands...'
+  22 |             ];
+> 23 |             setOutput(initialOutput);
+     |             ^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |         }
+  25 |     }, [state]);
+  26 |  react-hooks/set-state-in-effect
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\introspection\IntrospectionPanel.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"  import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  1:38  warning  'useMemo' is defined but never used             @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ArchitectureVisualization.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ComplianceDemoSection.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\CtaGrid.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  88:54  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\FounderStorySection.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\HeroSection.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\JourneyTimeline.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\MetricsSection.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ProblemSolutionComparison.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\TryItNowSection.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"  import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  1:27  warning  'useMemo' is defined but never used             @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ValuePropositionSection.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"  import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  7:22  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\hero\HeroBackgroundOrbs.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\hero\HeroValuePillars.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\observability\AnomalyTimeline.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\observability\CorrelationGraph.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\observability\LiveAlertsTicker.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:18  warning  'AnimatePresence' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\observability\ServiceHealthHeatmap.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\CinematicBoot.tsx
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/no-duplicates
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/no-named-as-default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             import/no-named-as-default-member
+   39:8   warning  React Hook useEffect has a missing dependency: 'onPhaseChange'. Either include it or remove the dependency array. If 'onPhaseChange' changes too often, find the parent component that defines it and wrap that definition in useCallback                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  109:36  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\CinematicBoot.tsx:109:36
+  107 |                     </p>
+  108 |                     <p className="text-[8px] text-neutral-800 mt-2 font-mono">
+> 109 |                         HASH_KEY: {Math.random().toString(16).substring(2, 10).toUpperCase()} ┬Ě UTC: {new Date().toISOString()}
+      |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  110 |                     </p>
+  111 |                 </motion.div>
+  112 |             </div>  react-hooks/purity
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\KernelConsciousness.tsx
+    1:1   error    Resolve error: unable to load resolver "alias"                           import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"                           import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"                           import/no-duplicates
+    1:1   error    Resolve error: unable to load resolver "alias"                           import/default
+    1:1   warning  Resolve error: unable to load resolver "alias"                           import/no-named-as-default
+    1:1   warning  Resolve error: unable to load resolver "alias"                           import/no-named-as-default-member
+  172:81  warning  'phase' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\PhaseHeader.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  17:13  warning  't' is assigned a value but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\QuantumCanvas.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+   1:34  warning  'useEffect' is defined but never used           @typescript-eslint/no-unused-vars
+  22:13  warning  'audit' is assigned a value but never used      @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\SimulationWorkspace.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"     import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"     import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"     import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"     import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"     import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"     import/no-named-as-default-member
+   7:1   warning  There should be no empty line within import group  import/order
+  14:10  warning  'ViewSkeleton' is defined but never used           @typescript-eslint/no-unused-vars
+  24:13  warning  't' is assigned a value but never used             @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\Skeletons.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\DarkModeToggle.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\DemoMode.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\ErrorBoundary.tsx
+   1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1  error    Resolve error: unable to load resolver "alias"  import/default
+   1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  25:9  warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Footer.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\LoadingSpinner.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Navigation.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"  import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  3:31  warning  'Video' is defined but never used               @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\SectionSkeleton.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\StatusBar.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Tabs.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Terminal.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Tooltip.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\progress.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\toaster.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\context\InvestorAuthContext.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  36:17  warning  Unexpected console statement                    no-console
+  63:13  warning  Unexpected console statement                    no-console
+  75:13  warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\context\LanguageContext.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import/no-named-as-default-member
+  20:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\context\LanguageContext.tsx:20:13
+  18 |         const savedLang = localStorage.getItem('formatdisc-lang') as Language;
+  19 |         if (savedLang) {
+> 20 |             setLanguage(savedLang);
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  21 |         }
+  22 |     }, []);
+  23 |  react-hooks/set-state-in-effect
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\hooks\use-toast.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  33:27  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\hooks\usePrefetchSection.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   7:60  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  19:29  warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\index.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\KernelProvider.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\monitoring\AuditVerifier.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\monitoring\HealthService.ts
+  60:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\useDeployment.ts
+    1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  167:17  warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\lib\mockData.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\lib\redisBroadcaster.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   5:16  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+   5:33  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+   8:26  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  14:33  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  14:41  warning  Unexpected console statement                    no-console
+  15:34  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  15:42  warning  Unexpected console statement                    no-console
+  17:37  warning  Unexpected console statement                    no-console
+  18:38  warning  Unexpected console statement                    no-console
+  21:47  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  30:52  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\lib\sseClient.ts
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                                                                 import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                 import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                                 import/no-duplicates
+  15:22  warning  '_' is defined but never used                                                                                                                                  @typescript-eslint/no-unused-vars
+  15:25  error    Empty block statement                                                                                                                                          no-empty
+  19:13  warning  Unexpected console statement                                                                                                                                   no-console
+  21:30  error    React Hook "useObservabilitySSE" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\motion\useKernelMotion.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\AuditRoute.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+   3:13  warning  'Filter' is defined but never used              @typescript-eslint/no-unused-vars
+   3:47  warning  'Calendar' is defined but never used            @typescript-eslint/no-unused-vars
+   4:5   warning  'Loader2' is defined but never used             @typescript-eslint/no-unused-vars
+   4:14  warning  'Clock' is defined but never used               @typescript-eslint/no-unused-vars
+   4:21  warning  'CheckCircle' is defined but never used         @typescript-eslint/no-unused-vars
+  53:13  warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\DocsRoute.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\InvestorLogin.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  27:18  warning  'err' is defined but never used                 @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\InvestorPortal.tsx
+    1:1    error    Resolve error: unable to load resolver "alias"                   import/namespace
+    1:1    warning  Resolve error: unable to load resolver "alias"                   import/order
+    1:1    warning  Resolve error: unable to load resolver "alias"                   import/no-duplicates
+    1:1    error    Resolve error: unable to load resolver "alias"                   import/default
+    1:1    warning  Resolve error: unable to load resolver "alias"                   import/no-named-as-default
+    1:1    warning  Resolve error: unable to load resolver "alias"                   import/no-named-as-default-member
+    4:20   warning  'ExternalLink' is defined but never used                         @typescript-eslint/no-unused-vars
+  132:37   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  133:163  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  228:135  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  228:159  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\InvestorsRoute.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\KernelPlayground.tsx
+    1:1    error    Resolve error: unable to load resolver "alias"                          import/namespace
+    1:1    warning  Resolve error: unable to load resolver "alias"                          import/order
+    1:1    warning  Resolve error: unable to load resolver "alias"                          import/no-duplicates
+    1:1    error    Resolve error: unable to load resolver "alias"                          import/default
+    1:1    warning  Resolve error: unable to load resolver "alias"                          import/no-named-as-default
+    1:1    warning  Resolve error: unable to load resolver "alias"                          import/no-named-as-default-member
+    2:10   warning  'motion' is defined but never used                                      @typescript-eslint/no-unused-vars
+    3:10   warning  'Play' is defined but never used                                        @typescript-eslint/no-unused-vars
+    3:16   warning  'Download' is defined but never used                                    @typescript-eslint/no-unused-vars
+    3:26   warning  'Code' is defined but never used                                        @typescript-eslint/no-unused-vars
+    3:32   warning  'Shield' is defined but never used                                      @typescript-eslint/no-unused-vars
+    9:42   warning  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  118:83   warning  Unexpected any. Specify a different type                                @typescript-eslint/no-explicit-any
+  127:134  error    Comments inside children section of tag should be placed inside braces  react/jsx-no-comment-textnodes
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\KernelRoute.tsx
+  1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1   error    Resolve error: unable to load resolver "alias"  import/default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+  4:10  warning  'KernelProvider' is defined but never used      @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\LandingPage.tsx
+   1:1    error    Resolve error: unable to load resolver "alias"                                                                                         import/namespace
+   1:1    warning  Resolve error: unable to load resolver "alias"                                                                                         import/order
+   1:1    warning  Resolve error: unable to load resolver "alias"                                                                                         import/no-duplicates
+   1:1    error    Resolve error: unable to load resolver "alias"                                                                                         import/default
+   1:1    warning  Resolve error: unable to load resolver "alias"                                                                                         import/no-named-as-default
+   1:1    warning  Resolve error: unable to load resolver "alias"                                                                                         import/no-named-as-default-member
+  33:131  warning  Unexpected any. Specify a different type                                                                                               @typescript-eslint/no-explicit-any
+  34:38   error    React Hook "usePrefetchSection" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\LaunchpadRoute.tsx
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                        import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                        import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                        import/no-duplicates
+    1:1   error    Resolve error: unable to load resolver "alias"                                                                                                        import/default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                        import/no-named-as-default
+    1:1   warning  Resolve error: unable to load resolver "alias"                                                                                                        import/no-named-as-default-member
+   12:5   warning  'ArrowRight' is defined but never used                                                                                                                @typescript-eslint/no-unused-vars
+   14:5   warning  'Mail' is defined but never used                                                                                                                      @typescript-eslint/no-unused-vars
+   36:20  warning  'kernelState' is assigned a value but never used                                                                                                      @typescript-eslint/no-unused-vars
+   46:8   warning  React Hook useEffect has missing dependencies: 'fetchInvestors', 'fetchLogs', and 'fetchProfile'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  242:79  error    Comments inside children section of tag should be placed inside braces                                                                                react/jsx-no-comment-textnodes
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\MetricsRoute.tsx
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"                                                                  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"                                                                  import/no-named-as-default-member
+   4:5   warning  'BarChart' is defined but never used                                                                            @typescript-eslint/no-unused-vars
+   4:15  warning  'Bar' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+   7:15  warning  'Users' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+   7:44  warning  'CheckCircle' is defined but never used                                                                         @typescript-eslint/no-unused-vars
+   7:57  warning  'TrendingUp' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+  10:10  warning  'motion' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  57:8   warning  React Hook useEffect has a missing dependency: 'loadMetrics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  70:13  warning  Unexpected console statement                                                                                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\ObservabilityRoute.tsx
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\services\geminiService.ts
+    1:1    error    Resolve error: unable to load resolver "alias"                                  import/namespace
+    1:1    warning  Resolve error: unable to load resolver "alias"                                  import/order
+    1:1    warning  Resolve error: unable to load resolver "alias"                                  import/no-duplicates
+   55:5    warning  Unexpected console statement                                                    no-console
+   74:9    warning  Unexpected console statement                                                    no-console
+  123:18   warning  'e' is defined but never used                                                   @typescript-eslint/no-unused-vars
+  124:11   warning  Unexpected console statement                                                    no-console
+  128:43   warning  'voteCounts' is assigned a value but never used                                 @typescript-eslint/no-unused-vars
+  156:7    warning  Unexpected console statement                                                    no-console
+  163:5    warning  Unexpected console statement                                                    no-console
+  201:9    warning  Unexpected console statement                                                    no-console
+  225:5    warning  Unexpected console statement                                                    no-console
+  253:9    warning  Unexpected console statement                                                    no-console
+  269:47   warning  'evaluation' is defined but never used. Allowed unused args must match /^_/u    @typescript-eslint/no-unused-vars
+  269:75   warning  'mvpBlueprint' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  269:103  warning  'pitchDeck' is defined but never used. Allowed unused args must match /^_/u     @typescript-eslint/no-unused-vars
+  270:5    warning  Unexpected console statement                                                    no-console
+  358:7    warning  Unexpected console statement                                                    no-console
+  374:5    warning  Unexpected console statement                                                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\services\ollamaService.ts
+   58:13  warning  Unexpected console statement  no-console
+   61:9   warning  Unexpected console statement  no-console
+  105:13  warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\stores\observabilityStore.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\stores\outboundStore.ts
+    1:1   error    Resolve error: unable to load resolver "alias"                         import/namespace
+    1:1   warning  Resolve error: unable to load resolver "alias"                         import/order
+    1:1   warning  Resolve error: unable to load resolver "alias"                         import/no-duplicates
+   16:83  warning  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   22:61  warning  'get' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+   36:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   60:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   80:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   90:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  108:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  118:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\test\setup.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\types\observability.ts
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\types\outbound.ts
+  19:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\inputSanitizer.test.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\inputSanitizer.ts
+  55:13  warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\metaManager.ts
+  1:1  error    Resolve error: unable to load resolver "alias"  import/namespace
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/order
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+  1:1  error    Resolve error: unable to load resolver "alias"  import/default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+  1:1  warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\performance.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   9:9   warning  Unexpected console statement                    no-console
+  21:11  warning  Unexpected console statement                    no-console
+  34:9   warning  Unexpected console statement                    no-console
+  36:9   warning  Unexpected console statement                    no-console
+  39:5   warning  Unexpected console statement                    no-console
+  58:9   warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\posthog.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   1:1   error    Resolve error: unable to load resolver "alias"  import/default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-named-as-default-member
+   9:7   warning  Unexpected console statement                    no-console
+  21:5   warning  Unexpected console statement                    no-console
+  23:5   warning  Unexpected console statement                    no-console
+  27:75  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  31:5   warning  Unexpected console statement                    no-console
+  35:74  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  39:5   warning  Unexpected console statement                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\sentry.ts
+   1:1   error    Resolve error: unable to load resolver "alias"  import/namespace
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/order
+   1:1   warning  Resolve error: unable to load resolver "alias"  import/no-duplicates
+   8:7   warning  Unexpected console statement                    no-console
+  22:3   warning  Unexpected console statement                    no-console
+  25:73  warning  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  29:5   warning  Unexpected console statement                    no-console
+
+Ôťľ 634 problems (181 errors, 453 warnings)
+

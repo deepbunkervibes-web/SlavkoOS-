@@ -1,0 +1,28 @@
+src/components/ErrorBoundary.tsx(26,14): error TS2339: Property 'setState' does not exist on type 'ErrorBoundary'.
+src/components/ErrorBoundary.tsx(43,21): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/kernel/AuditTrail.tsx(2,27): error TS2307: Cannot find module '../kernel/KernelProvider' or its corresponding type declarations.
+src/components/kernel/DeploymentControls.tsx(2,31): error TS2307: Cannot find module '../kernel/useDeployment' or its corresponding type declarations.
+src/components/kernel/DeploymentControls.tsx(3,33): error TS2307: Cannot find module '../motion/useKernelMotion' or its corresponding type declarations.
+src/components/kernel/KernelStatus.tsx(2,27): error TS2307: Cannot find module '../kernel/KernelProvider' or its corresponding type declarations.
+src/components/kernel/Terminal.tsx(2,27): error TS2307: Cannot find module '../kernel/KernelProvider' or its corresponding type declarations.
+src/components/kernel/Terminal.tsx(3,33): error TS2307: Cannot find module '../motion/useKernelMotion' or its corresponding type declarations.
+src/components/landing/ValuePropositionSection.tsx(46,40): error TS2304: Cannot find name 'React'.
+src/components/landing/ValuePropositionSection.tsx(48,17): error TS2304: Cannot find name 'useRef'.
+src/components/landing/ValuePropositionSection.tsx(50,19): error TS2304: Cannot find name 'React'.
+src/components/MvpStudio.tsx(5,10): error TS2440: Import declaration conflicts with local declaration of 'ResultActions'.
+src/components/MvpStudio.tsx(191,18): error TS2304: Cannot find name 'Suspense'.
+src/components/MvpStudio.tsx(200,19): error TS2304: Cannot find name 'Suspense'.
+src/components/ui/ErrorBoundary.tsx(17,14): error TS2339: Property 'state' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(25,18): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(26,18): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(32,18): error TS2339: Property 'state' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(33,35): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(50,21): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/services/geminiService.ts(302,22): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/geminiService.ts(307,54): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/ollamaService.ts(8,33): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/ollamaService.ts(9,34): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/utils/metaManager.ts(47,18): error TS2339: Property 'name' does not exist on type 'Element'.
+src/utils/metaManager.ts(57,18): error TS2339: Property 'rel' does not exist on type 'Element'.
+src/utils/posthog.ts(28,34): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/utils/sentry.ts(20,33): error TS2339: Property 'env' does not exist on type 'ImportMeta'.

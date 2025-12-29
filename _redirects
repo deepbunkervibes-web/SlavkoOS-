@@ -1,0 +1,18 @@
+# Cloudflare Pages Redirects
+# Configure routing and redirects for your application
+
+# Handle client-side routing
+# All routes should be served by index.html for React Router
+/* /index.html 200
+
+# API routes (proxy to backend)
+/api/* https://api.mvpsimulation.com/:splat 200
+
+# Legacy redirects (if any)
+/old-path /new-path 301
+
+# Trailing slash normalization
+/about/ /about 301
+
+# Redirect HTTP to HTTPS (handled by Cloudflare automatically)
+# http://* https://:splat 301

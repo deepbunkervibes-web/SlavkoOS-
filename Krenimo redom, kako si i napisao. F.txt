@@ -1,0 +1,347 @@
+Krenimo redom, kako si i napisao. Fokus: konkretan, production-friendly kod, bez šminke.
+
+---
+
+### 1. Telemetry integration (živ podaci u panelima)
+
+#### 1.1. Definiraj tipove metrika
+
+```ts
+// telemetry/types.ts
+export type ModuleId = "EXECUTION_KERNEL" | "COMPLIANCE_ENGINE" | "FORENSICS_SERVICE";
+
+export type ModuleStatus = "OK" | "DEGRADED" | "BLOCKED";
+
+export interface ModuleTelemetry {
+  id: ModuleId;
+  status: ModuleStatus;
+  latencyMs: number;
+  integrityScore: number; // 0–100
+  lastUpdated: string; // ISO
+  incidentsLast24h: number;
+}
+```
+
+#### 1.2. Hook za dohvat + stream (fallback na polling)
+
+```ts
+// telemetry/useKernelTelemetry.ts
+import { useEffect, useState } from "react";
+import type { ModuleTelemetry, ModuleId } from "./types";
+
+interface UseKernelTelemetryOptions {
+  moduleId: ModuleId;
+  pollIntervalMs?: number;
+}
+
+export function useKernelTelemetry({
+  moduleId,
+  pollIntervalMs = 15000,
+}: UseKernelTelemetryOptions) {
+  const [data, setData] = useState<ModuleTelemetry | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let ws: WebSocket | null = null;
+    let pollTimer: number | null = null;
+    let cancelled = false;
+
+    async function fetchSnapshot() {
+      try {
+        const res = await fetch(`/api/telemetry/modules/${moduleId}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = (await res.json()) as ModuleTelemetry;
+        if (!cancelled) {
+          setData(json);
+          setLoading(false);
+          setError(null);
+        }
+      } catch (err: any) {
+        if (!cancelled) {
+          setError(err?.message ?? "Telemetry fetch failed");
+          setLoading(false);
+        }
+      }
+    }
+
+    // 1) snapshot
+    fetchSnapshot();
+
+    // 2) websocket (best effort)
+    try {
+      ws = new WebSocket(
+        `${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.host}/ws/telemetry?module=${moduleId}`
+      );
+      ws.onmessage = (event) => {
+        const payload = JSON.parse(event.data) as ModuleTelemetry;
+        if (!cancelled) setData(payload);
+      };
+      ws.onerror = () => {
+        // degrade silently – polling će ostati
+      };
+    } catch {
+      // ignore, fallback na polling
+    }
+
+    // 3) polling kao fallback / backup
+    pollTimer = window.setInterval(fetchSnapshot, pollIntervalMs);
+
+    return () => {
+      cancelled = true;
+      if (ws) ws.close();
+      if (pollTimer) window.clearInterval(pollTimer);
+    };
+  }, [moduleId, pollIntervalMs]);
+
+  return { data, loading, error };
+}
+```
+
+#### 1.3. Poveži s postojećim panelima
+
+Pretpostavka: koristiš `SystemPanel` koji si već definirao.
+
+```tsx
+// components/OrchestratorPanel.tsx
+import React, { memo } from "react";
+import { useKernelTelemetry } from "../telemetry/useKernelTelemetry";
+import type { ModuleStatus } from "../telemetry/types";
+import { SystemPanel } from "./SystemPanel";
+
+function statusLabel(status: ModuleStatus | undefined) {
+  if (!status) return "STATE: UNKNOWN";
+  switch (status) {
+    case "OK":
+      return "STATE: STABLE_OPERATION";
+    case "DEGRADED":
+      return "STATE: DEGRADED // INVESTIGATE";
+    case "BLOCKED":
+      return "STATE: HARD_STOP // SAFETY_LOCK";
+  }
+}
+
+export const OrchestratorPanel = memo(() => {
+  const { data, loading, error } = useKernelTelemetry({
+    moduleId: "EXECUTION_KERNEL",
+  });
+
+  const footer = (
+    <div
+      className="mt-auto flex gap-2"
+      aria-label="Execution kernel telemetry"
+    >
+      <span className="font-mono text-[0.6rem] opacity-60">
+        {loading && "Loading…"}
+        {error && "Telemetry unavailable"}
+        {data &&
+          `LATENCY: ${Math.round(data.latencyMs)}ms · INTEGRITY: ${data.integrityScore}%`}
+      </span>
+    </div>
+  );
+
+  return (
+    <SystemPanel
+      label="B1 // EXECUTION_KERNEL"
+      title="Orchestration Fabric"
+      description="Runtime enforcement. Isolated agentic compute with instruction-level integrity checks."
+      statusLabel={statusLabel(data?.status)}
+      footer={footer}
+    />
+  );
+});
+
+OrchestratorPanel.displayName = "OrchestratorPanel";
+```
+
+Isto možeš napraviti za Compliance / Forensics.
+
+---
+
+### 2. Radix + CVA komponentizacija (Card kao primitiv)
+
+#### 2.1. CVA za panel varijante
+
+```ts
+// ui/systemCard.ts
+import { cva, type VariantProps } from "class-variance-authority";
+
+export const systemCard = cva(
+  "system-card flex flex-col border border-border-subtle bg-panel text-text-primary",
+  {
+    variants: {
+      status: {
+        OK: "ring-1 ring-success/40",
+        DEGRADED: "ring-1 ring-warning/40",
+        BLOCKED: "ring-1 ring-danger/60",
+        UNKNOWN: "ring-0",
+      },
+      density: {
+        comfortable: "p-5",
+        compact: "p-4",
+      },
+      emphasis: {
+        default: "",
+        primary: "shadow-lg shadow-accent-glow",
+      },
+    },
+    defaultVariants: {
+      status: "UNKNOWN",
+      density: "comfortable",
+      emphasis: "default",
+    },
+  }
+);
+
+export type SystemCardVariants = VariantProps<typeof systemCard>;
+```
+
+#### 2.2. Radix Card wrapper
+
+```tsx
+// components/SystemCard.tsx
+import * as React from "react";
+import * as Card from "@radix-ui/react-card";
+import { systemCard, type SystemCardVariants } from "../ui/systemCard";
+import { cn } from "../utils/cn";
+
+interface SystemCardProps
+  extends React.ComponentPropsWithoutRef<typeof Card.Root>,
+    SystemCardVariants {
+  label: string;
+  title: string;
+  description: string;
+  statusLabel?: string;
+  footer?: React.ReactNode;
+}
+
+export const SystemCard = React.forwardRef<HTMLDivElement, SystemCardProps>(
+  ({ label, title, description, status, density, emphasis, statusLabel, footer, className, ...props }, ref) => (
+    <Card.Root
+      ref={ref}
+      className={cn(systemCard({ status, density, emphasis }), className)}
+      role="region"
+      aria-labelledby={`${label}-title`}
+      aria-describedby={`${label}-desc`}
+    >
+      <Card.Header className="mb-3">
+        <span className="card-label">{label}</span>
+        <h3 id={`${label}-title`} className="card-title">
+          {title}
+        </h3>
+      </Card.Header>
+
+      <Card.Content>
+        <p id={`${label}-desc`} className="card-desc">
+          {description}
+        </p>
+        {statusLabel && (
+          <div
+            className="mt-2 font-mono text-[0.6rem] opacity-60"
+            aria-live="polite"
+          >
+            {statusLabel}
+          </div>
+        )}
+      </Card.Content>
+
+      {footer && <Card.Footer className="mt-auto pt-3">{footer}</Card.Footer>}
+    </Card.Root>
+  )
+);
+
+SystemCard.displayName = "SystemCard";
+```
+
+Sada tvoji paneli postaju tanki wrappers oko `SystemCard`.
+
+---
+
+### 3. State machine demo (determinističko ponašanje)
+
+#### 3.1. Simple reducer umjesto XState (za demo)
+
+```ts
+// state/machine.ts
+import type { ModuleStatus } from "../telemetry/types";
+
+export interface ModuleState {
+  status: ModuleStatus;
+}
+
+type Event = { type: "DEGRADE" } | { type: "RECOVER" } | { type: "BLOCK" };
+
+export function moduleReducer(state: ModuleState, event: Event): ModuleState {
+  switch (event.type) {
+    case "DEGRADE":
+      if (state.status === "BLOCKED") return state;
+      return { status: "DEGRADED" };
+    case "RECOVER":
+      return { status: "OK" };
+    case "BLOCK":
+      return { status: "BLOCKED" };
+    default:
+      return state;
+  }
+}
+```
+
+#### 3.2. Demo komponenta
+
+```tsx
+// components/ModuleStateDemo.tsx
+import React, { useReducer } from "react";
+import { moduleReducer } from "../state/machine";
+import { SystemCard } from "./SystemCard";
+
+export const ModuleStateDemo: React.FC = () => {
+  const [state, dispatch] = useReducer(moduleReducer, { status: "OK" });
+
+  const statusLabel = `DEMO_STATE: ${state.status}`;
+
+  return (
+    <div className="space-y-4">
+      <SystemCard
+        label="DEMO // STATE_MACHINE"
+        title="Kernel State Machine"
+        description="Deterministic transitions between OK, DEGRADED, and BLOCKED for demo and chaos testing."
+        status={state.status}
+        statusLabel={statusLabel}
+      />
+      <div className="flex gap-2">
+        <button
+          className="artifact-action-btn"
+          onClick={() => dispatch({ type: "DEGRADE" })}
+        >
+          Degrade
+        </button>
+        <button
+          className="artifact-action-btn action-danger"
+          onClick={() => dispatch({ type: "BLOCK" })}
+        >
+          Block
+        </button>
+        <button
+          className="artifact-action-btn"
+          onClick={() => dispatch({ type: "RECOVER" })}
+        >
+          Recover
+        </button>
+      </div>
+    </div>
+  );
+};
+```
+
+---
+
+### Što je sada na stolu
+
+- Imaš **telemetry integration hook** (WS + polling)
+- Imaš **Radix + CVA card primitiv** spreman za ostatak sustava
+- Imaš **state machine demo** koji možeš odmah baciti u neki “Lab”/“Playground” tab
+
+Ako želiš, mogu ti sljedeće:
+
+- napisati **minimalni backend API/WS contract** za `/api/telemetry/modules/:id`  
+- ili proširiti **status varijante** na cijeli layout (hero, audit view, artifact kartice) da cijeli OS “diše” zajedno sa stanjem kernela.

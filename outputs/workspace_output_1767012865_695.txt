@@ -1,0 +1,20 @@
+Archive:  osslavko.zip
+  inflating: Krenimo redom, kako si i napisao. F.txt  
+  inflating: tsconfig.json           
+  inflating: summarized_conversations/original_conversation_1766445285_1381.txt  
+  inflating: index-redesign.html     
+  inflating: contact-enhanced.php    
+  inflating: redesign_upload_instructions.md  
+  inflating: DeepSeek API.txt        
+  inflating: Below is a deep, production-grade t.txt  
+  inflating: ENTERPRISE_DASHBOARD_SPEC.md  
+  inflating: SYSTEM CONTEXT.txt      
+  inflating: index.html              
+  inflating: docs/api.md             
+  inflating: docs/development.md     
+  inflating: docs/deployment.md      
+  inflating: docker-compose.yml      
+  inflating: Below is a production-oriented expa.txt  
+  inflating: components.json         
+  inflating: README.Docker.md        
+  inflating: enhanced_deployment_instructions.md  

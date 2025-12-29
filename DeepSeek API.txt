@@ -1,0 +1,16 @@
+DeepSeek API
+
+sk-9b822633af384296896a4701bc552157
+
+OpenaAI API.
+
+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
+
+openai - Admin Key: 
+
+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
+
+Ollama:
+
+d7f7b5bbc3e1468da9b308535ae12e82.j7g2LeUl9vFHcc_wOa7XFbQS
+

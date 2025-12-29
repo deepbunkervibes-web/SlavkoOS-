@@ -1,0 +1,7 @@
+src/components/MvpStudio.tsx(5,10): error TS2440: Import declaration conflicts with local declaration of 'ResultActions'.
+src/components/MvpStudio.tsx(191,18): error TS2304: Cannot find name 'Suspense'.
+src/components/MvpStudio.tsx(200,19): error TS2304: Cannot find name 'Suspense'.
+src/components/ui/ErrorBoundary.tsx(22,18): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(23,18): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(30,25): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.
+src/components/ui/ErrorBoundary.tsx(46,21): error TS2339: Property 'props' does not exist on type 'ErrorBoundary'.

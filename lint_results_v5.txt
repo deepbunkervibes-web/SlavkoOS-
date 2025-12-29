@@ -1,0 +1,438 @@
+
+> mvp-simulation-studio@0.0.0 lint
+> eslint "src/**/*.{ts,tsx,js,jsx}" --fix
+
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\App.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  18:1   warning  There should be no empty line within import group                                                                  import/order
+  21:23  warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ChatInterface.tsx
+   1:8   error    No default export found in imported module "react"                                                                                                                                                                                                                                                                                                                                        import/default
+  10:11  error    An empty interface declaration allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead  @typescript-eslint/no-empty-object-type
+  66:7   warning  Unexpected console statement                                                                                                                                                                                                                                                                                                                                                              no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ErrorBoundary.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+  23:43  warning  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\EvaluationView.tsx
+    1:8   error    No default export found in imported module "react"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              import/default
+    1:27  warning  'useMemo' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+   13:46  warning  'phase' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  110:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\EvaluationView.tsx:110:5
+  108 |       return i === 5 ? conversionRate : value;
+  109 |     });
+> 110 |     setData(newData);
+      |     ^^^^^^^ Avoid calling setState() directly within an effect
+  111 |   }, [conversionRate]);
+  112 |
+  113 |   if (data.length === 0) return null;  react-hooks/set-state-in-effect
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\GlassCard.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\IdeaInput.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+   2:39  warning  'Info' is defined but never used                    @typescript-eslint/no-unused-vars
+  45:10  warning  'subtitleIndex' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\MvpPreview.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\MvpStudio.tsx
+    1:8   error    No default export found in imported module "react"                                                                    import/default
+   14:1   warning  There should be no empty line within import group                                                                     import/order
+   21:23  warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead     import/no-named-as-default-member
+  160:6   warning  React Hook useCallback has a missing dependency: 'startNewSession'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\PitchDeckView.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\PulsatingBackground.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ResultActions.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\ConfidenceGauge.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  26:32  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\DecisionTreeHologram.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  40:37  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\KernelConsciousnessDashboard.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\NeuralField.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  93:28  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\PhaseTimeline.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  38:30  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\QuantumStateIndicator.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  41:38  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\consciousness\ThoughtStream.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  36:30  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\investors\LineageMap.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\investors\OrchestrationWall.tsx
+  1:8   error    No default export found in imported module "react"    import/default
+  1:17  warning  'useEffect' is defined but never used                 @typescript-eslint/no-unused-vars
+  2:29  warning  'useTransform' is defined but never used              @typescript-eslint/no-unused-vars
+  6:13  warning  'scrollXProgress' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\AuditTrail.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\DeploymentControls.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\KernelStatus.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\Terminal.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\kernel\introspection\IntrospectionPanel.tsx
+  1:8   error    No default export found in imported module "react"  import/default
+  1:38  warning  'useMemo' is defined but never used                 @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ArchitectureVisualization.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  5:42  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ComplianceDemoSection.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+   7:19  warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead  import/no-named-as-default-member
+  15:38  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\CtaGrid.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+   8:24  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+  88:54  warning  Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\FounderStorySection.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  5:36  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\HeroSection.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\JourneyTimeline.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  5:32  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\MetricsSection.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  5:31  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ProblemSolutionComparison.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  5:42  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\TryItNowSection.tsx
+    1:8   error    No default export found in imported module "react"                                                                 import/default
+    1:27  warning  'useMemo' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+  125:32  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\ValuePropositionSection.tsx
+   1:8   error    No default export found in imported module "react"                                                                       import/default
+   7:22  warning  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+  48:40  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead        import/no-named-as-default-member
+  52:19  warning  Caution: `React` also has a named export `useMemo`. Check if you meant to write `import {useMemo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\hero\HeroBackgroundOrbs.tsx
+  1:8   error    No default export found in imported module "react"                                                                 import/default
+  4:35  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\landing\hero\HeroValuePillars.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  23:33  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\observability\LiveAlertsTicker.tsx
+  1:18  warning  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\CinematicBoot.tsx
+   1:8  error    No default export found in imported module "react"                                                                                                                                                                                         import/default
+  41:8  warning  React Hook useEffect has a missing dependency: 'onPhaseChange'. Either include it or remove the dependency array. If 'onPhaseChange' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\KernelConsciousness.tsx
+    1:8   error    No default export found in imported module "react"                       import/default
+  172:81  warning  'phase' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\PhaseHeader.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+  16:28  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+  17:13  warning  't' is assigned a value but never used                                                                             @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\QuantumCanvas.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+   1:34  warning  'useEffect' is defined but never used               @typescript-eslint/no-unused-vars
+  22:13  warning  'audit' is assigned a value but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\SimulationWorkspace.tsx
+   1:8   error    No default export found in imported module "react"                                                                 import/default
+   7:1   warning  There should be no empty line within import group                                                                  import/order
+  10:20  warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead  import/no-named-as-default-member
+  11:23  warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead  import/no-named-as-default-member
+  14:10  warning  'ViewSkeleton' is defined but never used                                                                           @typescript-eslint/no-unused-vars
+  22:36  warning  Caution: `React` also has a named export `memo`. Check if you meant to write `import {memo} from 'react'` instead  import/no-named-as-default-member
+  24:13  warning  't' is assigned a value but never used                                                                             @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\studio\Skeletons.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\DarkModeToggle.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\DemoMode.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\ErrorBoundary.tsx
+   1:8   error    No default export found in imported module "react"                                                                           import/default
+  14:36  warning  Caution: `React` also has a named export `Component`. Check if you meant to write `import {Component} from 'react'` instead  import/no-named-as-default-member
+  25:9   warning  Unexpected console statement                                                                                                 no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Footer.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\LoadingSpinner.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Navigation.tsx
+  1:8   error    No default export found in imported module "react"  import/default
+  3:31  warning  'Video' is defined but never used                   @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\SectionSkeleton.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\StatusBar.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Tabs.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Terminal.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\Tooltip.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\progress.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\components\ui\toaster.tsx
+  1:8  error    No default export found in imported module "react"                                                                           import/default
+  9:3  warning  Caution: `React` also has a named export `useEffect`. Check if you meant to write `import {useEffect} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\context\InvestorAuthContext.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+  36:17  warning  Unexpected console statement                        no-console
+  63:13  warning  Unexpected console statement                        no-console
+  75:13  warning  Unexpected console statement                        no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\context\LanguageContext.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\hooks\use-toast.ts
+  33:27  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\hooks\usePrefetchSection.ts
+   7:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:29  warning  Unexpected console statement              no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\index.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\KernelProvider.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\monitoring\HealthService.ts
+  60:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\kernel\useDeployment.ts
+  167:17  warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\lib\redisBroadcaster.ts
+   5:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   5:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   8:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:41  warning  Unexpected console statement              no-console
+  15:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  15:42  warning  Unexpected console statement              no-console
+  17:37  warning  Unexpected console statement              no-console
+  18:38  warning  Unexpected console statement              no-console
+  21:47  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  30:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\lib\sseClient.ts
+  15:22  warning  '_' is defined but never used                                                                                                                                  @typescript-eslint/no-unused-vars
+  15:25  error    Empty block statement                                                                                                                                          no-empty
+  19:13  warning  Unexpected console statement                                                                                                                                   no-console
+  21:30  error    React Hook "useObservabilitySSE" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\AuditRoute.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+   3:13  warning  'Filter' is defined but never used                  @typescript-eslint/no-unused-vars
+   3:47  warning  'Calendar' is defined but never used                @typescript-eslint/no-unused-vars
+   4:5   warning  'Loader2' is defined but never used                 @typescript-eslint/no-unused-vars
+   4:14  warning  'Clock' is defined but never used                   @typescript-eslint/no-unused-vars
+   4:21  warning  'CheckCircle' is defined but never used             @typescript-eslint/no-unused-vars
+  53:13  warning  Unexpected console statement                        no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\DocsRoute.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\InvestorLogin.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+  27:18  warning  'err' is defined but never used                     @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\InvestorPortal.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\KernelPlayground.tsx
+    1:8   error    No default export found in imported module "react"  import/default
+    2:10  warning  'motion' is defined but never used                  @typescript-eslint/no-unused-vars
+    3:10  warning  'Play' is defined but never used                    @typescript-eslint/no-unused-vars
+    3:16  warning  'Download' is defined but never used                @typescript-eslint/no-unused-vars
+    3:26  warning  'Code' is defined but never used                    @typescript-eslint/no-unused-vars
+    3:32  warning  'Shield' is defined but never used                  @typescript-eslint/no-unused-vars
+    9:42  warning  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  118:83  warning  Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\KernelRoute.tsx
+  1:8   error    No default export found in imported module "react"  import/default
+  4:10  warning  'KernelProvider' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\LandingPage.tsx
+   1:8    error    No default export found in imported module "react"                                                                                     import/default
+  21:21   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  22:33   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  23:25   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  24:35   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  25:31   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  26:25   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  27:35   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  28:29   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  29:24   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  30:17   warning  Caution: `React` also has a named export `lazy`. Check if you meant to write `import {lazy} from 'react'` instead                      import/no-named-as-default-member
+  33:131  warning  Unexpected any. Specify a different type                                                                                               @typescript-eslint/no-explicit-any
+  34:38   error    React Hook "usePrefetchSection" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\LaunchpadRoute.tsx
+   1:8   error    No default export found in imported module "react"  import/default
+  12:5   warning  'ArrowRight' is defined but never used              @typescript-eslint/no-unused-vars
+  14:5   warning  'Mail' is defined but never used                    @typescript-eslint/no-unused-vars
+  36:20  warning  'kernelState' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\MetricsRoute.tsx
+   1:8   error    No default export found in imported module "react"                                                              import/default
+   4:5   warning  'BarChart' is defined but never used                                                                            @typescript-eslint/no-unused-vars
+   4:15  warning  'Bar' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+   7:15  warning  'Users' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+   7:44  warning  'CheckCircle' is defined but never used                                                                         @typescript-eslint/no-unused-vars
+   7:57  warning  'TrendingUp' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+  10:10  warning  'motion' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  57:8   warning  React Hook useEffect has a missing dependency: 'loadMetrics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  70:13  warning  Unexpected console statement                                                                                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\routes\ObservabilityRoute.tsx
+  1:8  error  No default export found in imported module "react"  import/default
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\services\geminiService.ts
+   55:5    warning  Unexpected console statement                                                    no-console
+   74:9    warning  Unexpected console statement                                                    no-console
+  123:18   warning  'e' is defined but never used                                                   @typescript-eslint/no-unused-vars
+  124:11   warning  Unexpected console statement                                                    no-console
+  128:43   warning  'voteCounts' is assigned a value but never used                                 @typescript-eslint/no-unused-vars
+  156:7    warning  Unexpected console statement                                                    no-console
+  163:5    warning  Unexpected console statement                                                    no-console
+  201:9    warning  Unexpected console statement                                                    no-console
+  225:5    warning  Unexpected console statement                                                    no-console
+  253:9    warning  Unexpected console statement                                                    no-console
+  269:47   warning  'evaluation' is defined but never used. Allowed unused args must match /^_/u    @typescript-eslint/no-unused-vars
+  269:75   warning  'mvpBlueprint' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  269:103  warning  'pitchDeck' is defined but never used. Allowed unused args must match /^_/u     @typescript-eslint/no-unused-vars
+  270:5    warning  Unexpected console statement                                                    no-console
+  358:7    warning  Unexpected console statement                                                    no-console
+  374:5    warning  Unexpected console statement                                                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\services\ollamaService.ts
+   58:13  warning  Unexpected console statement  no-console
+   61:9   warning  Unexpected console statement  no-console
+  105:13  warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\stores\outboundStore.ts
+   16:83  warning  Unexpected any. Specify a different type                               @typescript-eslint/no-explicit-any
+   22:61  warning  'get' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+   36:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   60:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   80:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+   90:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  108:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+  118:18  warning  'err' is defined but never used                                        @typescript-eslint/no-unused-vars
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\types\observability.ts
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\types\outbound.ts
+  19:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\inputSanitizer.ts
+  55:13  warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\metaManager.ts
+  70:8  error    No default export found in imported module "react"                                                                           import/default
+  73:5  warning  Caution: `React` also has a named export `useEffect`. Check if you meant to write `import {useEffect} from 'react'` instead  import/no-named-as-default-member
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\performance.ts
+   9:9   warning  Unexpected console statement  no-console
+  21:11  warning  Unexpected console statement  no-console
+  34:9   warning  Unexpected console statement  no-console
+  36:9   warning  Unexpected console statement  no-console
+  39:5   warning  Unexpected console statement  no-console
+  58:9   warning  Unexpected console statement  no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\posthog.ts
+   1:8   warning  Using exported name 'posthog' as identifier for default import  import/no-named-as-default
+   9:7   warning  Unexpected console statement                                    no-console
+  21:5   warning  Unexpected console statement                                    no-console
+  23:5   warning  Unexpected console statement                                    no-console
+  27:75  warning  Unexpected any. Specify a different type                        @typescript-eslint/no-explicit-any
+  31:5   warning  Unexpected console statement                                    no-console
+  35:74  warning  Unexpected any. Specify a different type                        @typescript-eslint/no-explicit-any
+  39:5   warning  Unexpected console statement                                    no-console
+
+C:\Users\gera\Pictures\MVP-Simulation-Studio-SlavkoKernel-v7-main\src\utils\sentry.ts
+   8:7   warning  Unexpected console statement              no-console
+  22:3   warning  Unexpected console statement              no-console
+  25:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:5   warning  Unexpected console statement              no-console
+
+Ôťľ 239 problems (76 errors, 163 warnings)
+

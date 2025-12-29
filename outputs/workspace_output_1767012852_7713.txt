@@ -1,0 +1,5 @@
+./next-env.d.ts
+./Untitled-1.ts
+./dev-server.ts
+./vite.config.ts
+./playwright.config.ts

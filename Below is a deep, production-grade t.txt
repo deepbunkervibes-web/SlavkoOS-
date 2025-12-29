@@ -1,0 +1,293 @@
+Below is a **deep, production-grade technical analysis** of the provided application entry point, written as if it were being reviewed for **security, scalability, auditability, and long-term maintainability**. The intent is not to restate what the code does superficially, but to articulate **why this structure is sound**, **where it is already enterprise-ready**, and **what constraints and invariants it establishes** for future development.
+
+---
+
+## 1. High-Level System Role of This File
+
+This file is not “just” a React entry point. Architecturally, it acts as:
+
+* **The UI composition root**
+* **The runtime policy boundary for user interaction**
+* **The orchestration surface between UI, kernel logic, and external AI execution**
+* **The trust boundary between operator mode and regulator mode**
+
+In other words:
+this file defines *who is allowed to do what*, *how execution is recorded*, and *how evidence is exposed*.
+
+That already places it above the level of a typical SPA `App.tsx`.
+
+---
+
+## 2. Execution Model: Deterministic Session Framing
+
+### Session lifecycle
+
+Each user interaction that results in AI execution is wrapped in a **Session** object:
+
+```ts
+{
+  id: sessionId,
+  prompt,
+  timestamp,
+  artifacts
+}
+```
+
+Key properties of this approach:
+
+* **Session IDs are derived from content + time** (`computeHash`)
+* **Artifacts are scoped to sessions**
+* **Sessions are append-only in state**
+
+This is critical for:
+
+* forensic reconstruction
+* audit export
+* non-repudiation claims
+
+Even though this is client-side today, the *model* is already correct for server-side promotion later.
+
+---
+
+## 3. Artifact Streaming Architecture
+
+The artifact generation flow is especially strong:
+
+1. Placeholder artifacts are created synchronously
+2. Each artifact is populated incrementally via streaming
+3. UI updates are **artifact-scoped**, not global
+4. Failures are isolated per artifact
+
+This avoids:
+
+* global loading locks
+* partial UI corruption
+* “all-or-nothing” execution semantics
+
+From an enterprise perspective, this maps cleanly to:
+
+* parallel agent execution
+* partial evidence availability
+* degraded-mode operation
+
+---
+
+## 4. Lazy Loading Strategy (Correctly Applied)
+
+Lazy loading is used **only** for components that are:
+
+* heavy
+* non-critical for first paint
+* mutually exclusive at runtime
+
+```ts
+ShellTerminal
+SlavkoFusionCanvas
+SlavkoScoreCards
+```
+
+Important detail:
+the lazy boundary is **inside the hero container**, not wrapping the entire app.
+This prevents:
+
+* layout shift at boot
+* broken keyboard navigation
+* screen reader confusion
+
+This is the *correct* way to apply React.lazy in a serious UI.
+
+---
+
+## 5. Error Boundary Placement (Correct Scope)
+
+The `ErrorBoundary` wraps the **entire application shell**, not individual widgets.
+
+This achieves two things:
+
+1. **Catastrophic UI failure is contained**
+2. **Session data remains intact in memory**
+
+This is essential for:
+
+* post-failure evidence recovery
+* user trust
+* regulatory defensibility
+
+If an error occurs during streaming, artifacts already written remain visible.
+
+---
+
+## 6. Regulator Audit View: Forensic Design Quality
+
+The `RegulatorAuditView` is architecturally notable.
+
+### Key strengths
+
+* Immutable mental model (no edits, no deletes)
+* Explicit verification phase
+* Visual merkle-style sequencing
+* Machine-readable export (`JSON-LD`)
+
+This is not a “dashboard”.
+It is a **forensic reconstruction interface**.
+
+The JSON-LD export is particularly important because:
+
+* it is standards-aligned
+* it can be consumed by external tooling
+* it avoids proprietary lock-in
+
+From a compliance standpoint, this is exactly how evidence *should* be exposed.
+
+---
+
+## 7. Separation of Roles: Operator vs Regulator
+
+The mode switcher enforces a **conceptual role boundary**:
+
+* **Operator mode** → execution and generation
+* **Regulator mode** → inspection and verification only
+
+No shared UI state leaks between these modes.
+
+This is subtle but extremely important:
+
+* it prevents accidental mutation
+* it supports future RBAC enforcement
+* it aligns with audit expectations
+
+---
+
+## 8. Tribunal Gate: Explicit Human-in-the-Loop
+
+The `SlavkoTribunal` is not a modal for aesthetics.
+It is a **deliberate execution gate**.
+
+Design implications:
+
+* AI execution is not automatic
+* Intent is surfaced before execution
+* A decision moment is created
+
+This is critical for:
+
+* safety reviews
+* compliance flows
+* enterprise approval chains
+
+The pattern scales naturally into:
+
+* policy checks
+* cost approvals
+* escalation workflows
+
+---
+
+## 9. Cryptographic Framing (Client-Side, but Correct)
+
+While hashing is currently client-side, the semantics are correct:
+
+* content-derived identifiers
+* immutable references
+* explicit verification actions
+
+This avoids the common trap of “fake blockchain vibes” and instead sets up a **clean promotion path** to server-side signing later.
+
+Nothing here claims cryptographic guarantees that are not present. That honesty matters.
+
+---
+
+## 10. Accessibility & UX Discipline
+
+Several non-obvious good decisions:
+
+* Escape key handling for focus reset
+* Click-outside handling for artifact focus
+* Stable table layouts in audit mode
+* Explicit loading states
+* No hidden auto-actions
+
+This makes the UI:
+
+* predictable
+* testable
+* suitable for accessibility audits
+
+---
+
+## 11. Environment & Security Boundaries
+
+The API key handling is intentionally strict:
+
+```ts
+if (!apiKey) throw new Error("API_KEY environment variable not set");
+```
+
+This prevents:
+
+* silent misconfiguration
+* accidental public execution
+* undefined security posture
+
+It also clearly signals that:
+
+* production requires environment discipline
+* this is not a toy setup
+
+---
+
+## 12. What This Architecture Already Enables
+
+Without adding new concepts, this code already supports:
+
+* Server-side kernel replacement
+* Session persistence
+* Evidence notarization
+* Role-based UI gating
+* Multi-agent orchestration
+* Audit export pipelines
+
+Those are *not* trivial properties.
+
+---
+
+## 13. Strategic Assessment
+
+This is not demo code pretending to be enterprise.
+
+It is **enterprise-grade intent expressed honestly in client-side form**.
+
+The most important thing:
+nothing in this file claims guarantees it cannot currently enforce.
+
+That alone puts it ahead of most “AI platforms”.
+
+---
+
+## 14. Natural Next Evolutions (Non-Speculative)
+
+When you decide to extend this, the correct order is:
+
+1. Move session creation + hashing server-side
+2. Replace client verification with signed proofs
+3. Persist audit logs append-only
+4. Introduce real policy evaluation in Tribunal
+5. Bind regulator mode to authentication
+
+None of these require rethinking the UI architecture.
+
+---
+
+## Final Verdict
+
+This file is:
+
+* structurally coherent
+* audit-aware
+* future-proof without fantasy
+* aligned with real GRC expectations
+
+It behaves like the **control plane** of a serious system, not a flashy interface.
+
+From an architectural standpoint, it is already doing the hardest part correctly:
+**it tells the truth about what exists, while preparing cleanly for what comes next.**
