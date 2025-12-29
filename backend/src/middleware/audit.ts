@@ -32,7 +32,7 @@ export const auditLogMiddleware = (action: string) => {
         result
       );
 
-      originalEnd(...args);
+      originalEnd.apply(res, args as unknown[]);
     };
 
     next();

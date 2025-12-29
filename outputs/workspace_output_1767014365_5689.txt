@@ -1,0 +1,30 @@
+backend/src/app.ts(8,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/app.ts(9,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/app.ts(12,24): error TS2307: Cannot find module '@/routes/auth' or its corresponding type declarations.
+backend/src/app.ts(13,24): error TS2307: Cannot find module '@/routes/users' or its corresponding type declarations.
+backend/src/app.ts(14,27): error TS2307: Cannot find module '@/routes/projects' or its corresponding type declarations.
+backend/src/app.ts(15,24): error TS2307: Cannot find module '@/routes/tasks' or its corresponding type declarations.
+backend/src/app.ts(16,24): error TS2307: Cannot find module '@/routes/teams' or its corresponding type declarations.
+backend/src/app.ts(17,29): error TS2307: Cannot find module '@/routes/dashboard' or its corresponding type declarations.
+backend/src/controllers/UserController.ts(2,29): error TS2307: Cannot find module '@/services/UserService' or its corresponding type declarations.
+backend/src/controllers/UserController.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/index.ts(4,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/middleware/audit.ts(18,5): error TS2322: Type '(...args: unknown[]) => void' is not assignable to type '{ (cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined): Response<...>; }'.
+backend/src/middleware/audit.ts(35,19): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '(() => void) | undefined'.
+backend/src/middleware/circuitBreaker.ts(6,37): error TS2307: Cannot find module '@enterprise/shared/types/errors' or its corresponding type declarations.
+backend/src/middleware/errorHandler.ts(14,8): error TS2307: Cannot find module '@enterprise/shared/types/errors' or its corresponding type declarations.
+backend/src/middleware/errorHandler.ts(34,24): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/errorHandler.ts(46,36): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/errorHandler.ts(59,17): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/errorHandler.ts(88,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(10,32): error TS2307: Cannot find module '@enterprise/shared/types/errors' or its corresponding type declarations.
+backend/src/middleware/security.ts(73,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(76,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(102,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(105,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(127,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(130,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(142,7): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(167,20): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(178,22): error TS2339: Property 'id' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+backend/src/middleware/security.ts(215,9): error TS2322: Type 'Response<any, Record<string, any>>' is not assignable to type 'void'.

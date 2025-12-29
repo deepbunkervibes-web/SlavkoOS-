@@ -7,7 +7,16 @@ import { Request, Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import cors from 'cors';
-import { RateLimitError } from '@enterprise/shared/types/errors';
+import { RateLimitError } from '@/types/errors';
+
+// Extend Express Request type to include id property
+declare global {
+  namespace Express {
+    interface Request {
+      id?: string;
+    }
+  }
+}
 import logger from '../utils/logger';
 
 /**
@@ -70,10 +79,10 @@ export const apiRateLimit = rateLimit({
       ip: req.ip,
       path: req.path,
       method: req.method,
-      requestId: req.id
+      requestId: req.id || 'unknown'
     });
     throw new RateLimitError('Rate limit exceeded', {
-      requestId: req.id,
+      requestId: req.id || 'unknown',
       path: req.path,
       method: req.method
     });
@@ -99,10 +108,10 @@ export const authRateLimit = rateLimit({
       ip: req.ip,
       path: req.path,
       method: req.method,
-      requestId: req.id
+      requestId: req.id || 'unknown'
     });
     throw new RateLimitError('Authentication rate limit exceeded', {
-      requestId: req.id,
+      requestId: req.id || 'unknown',
       path: req.path,
       method: req.method
     });
@@ -124,10 +133,10 @@ export const aiRateLimit = rateLimit({
       ip: req.ip,
       path: req.path,
       method: req.method,
-      requestId: req.id
+      requestId: req.id || 'unknown'
     });
     throw new RateLimitError('AI rate limit exceeded', {
-      requestId: req.id,
+      requestId: req.id || 'unknown',
       path: req.path,
       method: req.method
     });
@@ -212,10 +221,11 @@ export const validateContentType = (expectedType: string) => {
       const contentType = req.headers['content-type'];
       
       if (!contentType || !contentType.includes(expectedType)) {
-        return res.status(415).json({
+        res.status(415).json({
           success: false,
           error: `Unsupported media type. Expected: ${expectedType}`
         });
+        return;
       }
     }
     next();

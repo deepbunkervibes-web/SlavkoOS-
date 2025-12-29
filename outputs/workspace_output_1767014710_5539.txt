@@ -1,0 +1,26 @@
+            path: req.path,$
+            method: req.method,$
+            additionalData: {$
+              errors: error.errors.map(err => ({$
+                path: err.path.join('.'),$
+                message: err.message,$
+                code: err.code$
+              }))$
+            }$
+          }$
+        });$
+$
+        logger.warn('Params validation failed', {$
+          errors: error.errors,$
+          params: req.params,$
+          requestId: req.id || 'unknown'$
+        });$
+$
+        res.status(400).json(validationError.toJSON());$
+      } else {$
+        next(error);$
+      }$
+    }$
+  };$
+};$
+$

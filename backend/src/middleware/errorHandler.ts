@@ -11,13 +11,22 @@ import {
   ValidationError,
   InternalServerError,
   ErrorSeverity
-} from '@enterprise/shared/types/errors';
+} from '@/types/errors';
 import logger from '../utils/logger';
 
 /**
  * Error handler middleware
  * Converts all errors to standardized format and logs them
  */
+// Extend Express Request type to include id property
+declare global {
+  namespace Express {
+    interface Request {
+      id?: string;
+    }
+  }
+}
+
 export const errorHandler = (
   err: Error | AppError,
   req: Request,
@@ -85,7 +94,7 @@ export const notFoundHandler = (
   const error = new ValidationError(
     `Route ${req.method} ${req.path} not found`,
     {
-      requestId: req.id,
+      requestId: req.id || 'unknown',
       path: req.path,
       method: req.method
     }

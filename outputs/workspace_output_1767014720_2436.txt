@@ -1,0 +1,20 @@
+            }
+          }
+        });
+
+        logger.warn('Params validation failed', {
+          errors: error.errors,
+          params: req.params,
+          requestId: req.id || 'unknown'
+        });
+
+        res.status(400).json(validationError.toJSON());
+      } else {
+        next(error);
+      }
+    }
+  };
+};
+
+/**
+ * Sanitize request body

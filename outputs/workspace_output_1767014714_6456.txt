@@ -1,0 +1,4 @@
+backend/src/middleware/validation.ts(115,9): error TS1005: ',' expected.
+backend/src/middleware/validation.ts(115,10): error TS1128: Declaration or statement expected.
+backend/src/middleware/validation.ts(124,9): error TS1128: Declaration or statement expected.
+backend/src/middleware/validation.ts(129,1): error TS1128: Declaration or statement expected.

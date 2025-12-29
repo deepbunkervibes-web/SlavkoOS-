@@ -1,0 +1,11 @@
+bash: line 3: error: command not found
+bash: line 3: error: command not found
+bash: line 3: error: command not found
+sh: 1: next: not found
+npm error Missing script: "type-check"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /root/.npm/_logs/2025-12-29T13_15_15_382Z-debug-0.log
+sh: 1: next: not found
+could not add label: 'priority:critical' not found

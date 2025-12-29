@@ -1,0 +1,26 @@
+                message: err.message,
+                code: err.code
+              }))
+            }
+          }
+        });
+
+        logger.warn('Params validation failed', {
+          errors: error.errors,
+          params: req.params,
+          requestId: req.id || 'unknown'
+        });
+
+        res.status(400).json(validationError.toJSON());
+      } else {
+        next(error);
+      }
+    }
+  };
+};
+
+/**
+ * Sanitize request body
+ * Removes potentially dangerous content
+ */
+export const sanitizeBody = (req: Request, _res: Response, next: NextFunction): void => {

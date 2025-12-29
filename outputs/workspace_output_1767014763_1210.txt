@@ -1,0 +1,181 @@
+backend/src/app.ts(8,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/app.ts(9,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/app.ts(12,24): error TS2307: Cannot find module '@/routes/auth' or its corresponding type declarations.
+backend/src/app.ts(13,24): error TS2307: Cannot find module '@/routes/users' or its corresponding type declarations.
+backend/src/app.ts(14,27): error TS2307: Cannot find module '@/routes/projects' or its corresponding type declarations.
+backend/src/app.ts(15,24): error TS2307: Cannot find module '@/routes/tasks' or its corresponding type declarations.
+backend/src/app.ts(16,24): error TS2307: Cannot find module '@/routes/teams' or its corresponding type declarations.
+backend/src/app.ts(17,29): error TS2307: Cannot find module '@/routes/dashboard' or its corresponding type declarations.
+backend/src/controllers/UserController.ts(2,29): error TS2307: Cannot find module '@/services/UserService' or its corresponding type declarations.
+backend/src/controllers/UserController.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/index.ts(4,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/middleware/audit.ts(18,5): error TS2322: Type '(...args: unknown[]) => void' is not assignable to type '{ (cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined): Response<...>; }'.
+backend/src/middleware/audit.ts(35,30): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type '[chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined]'.
+backend/src/middleware/circuitBreaker.ts(6,37): error TS2307: Cannot find module '@/types/errors' or its corresponding type declarations.
+backend/src/middleware/errorHandler.ts(14,8): error TS2307: Cannot find module '@/types/errors' or its corresponding type declarations.
+backend/src/middleware/security.ts(10,32): error TS2307: Cannot find module '@/types/errors' or its corresponding type declarations.
+backend/src/middleware/security.ts(244,7): error TS2322: Type 'Response<any, Record<string, any>>' is not assignable to type 'void'.
+backend/src/middleware/validation.ts(8,33): error TS2307: Cannot find module '@/types/errors' or its corresponding type declarations.
+backend/src/middleware/validation.ts(9,20): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/middleware/validation.ts(57,7): error TS2322: Type 'T' is not assignable to type 'ParsedQs'.
+backend/src/middleware/validation.ts(97,7): error TS2322: Type 'T' is not assignable to type 'ParamsDictionary'.
+backend/src/routes/auth.ts(2,29): error TS2307: Cannot find module '@/services/UserService' or its corresponding type declarations.
+backend/src/routes/auth.ts(3,43): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/routes/auth.ts(4,26): error TS2307: Cannot find module '@/middleware/validation' or its corresponding type declarations.
+backend/src/routes/auth.ts(35,72): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/auth.ts(35,77): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/auth.ts(59,66): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/auth.ts(59,71): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/auth.ts(95,43): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/auth.ts(95,48): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(2,34): error TS2307: Cannot find module '@/services/DashboardService' or its corresponding type declarations.
+backend/src/routes/dashboard.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/routes/dashboard.ts(11,42): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(11,47): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(16,52): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(16,57): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(21,49): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(21,54): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(26,52): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/dashboard.ts(26,57): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(2,32): error TS2307: Cannot find module '@/services/ProjectService' or its corresponding type declarations.
+backend/src/routes/projects.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/routes/projects.ts(4,59): error TS2307: Cannot find module '@/middleware/validation' or its corresponding type declarations.
+backend/src/routes/projects.ts(7,41): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/routes/projects.ts(43,69): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(43,74): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(48,74): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(48,79): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(54,40): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(54,45): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(59,71): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(59,76): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(64,43): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(64,48): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/projects.ts(70,46): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/projects.ts(70,51): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(2,29): error TS2307: Cannot find module '@/services/TaskService' or its corresponding type declarations.
+backend/src/routes/tasks.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/routes/tasks.ts(4,59): error TS2307: Cannot find module '@/middleware/validation' or its corresponding type declarations.
+backend/src/routes/tasks.ts(7,38): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/routes/tasks.ts(46,66): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(46,71): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(51,71): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(51,76): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(57,40): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(57,45): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(62,68): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(62,73): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(67,43): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/tasks.ts(67,48): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(2,29): error TS2307: Cannot find module '@/services/TeamService' or its corresponding type declarations.
+backend/src/routes/teams.ts(3,30): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/routes/teams.ts(4,44): error TS2307: Cannot find module '@/middleware/validation' or its corresponding type declarations.
+backend/src/routes/teams.ts(7,26): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/routes/teams.ts(26,66): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(26,71): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(31,37): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(31,42): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(38,40): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(38,45): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(43,68): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(43,73): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(48,43): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(48,48): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(54,76): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(54,81): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/teams.ts(59,59): error TS7006: Parameter 'req' implicitly has an 'any' type.
+backend/src/routes/teams.ts(59,64): error TS7006: Parameter 'res' implicitly has an 'any' type.
+backend/src/routes/users.ts(2,32): error TS2307: Cannot find module '@/controllers/UserController' or its corresponding type declarations.
+backend/src/routes/users.ts(3,29): error TS2307: Cannot find module '@/services/UserService' or its corresponding type declarations.
+backend/src/routes/users.ts(4,26): error TS2307: Cannot find module '@/middleware/validation' or its corresponding type declarations.
+backend/src/routes/users.ts(7,26): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/DashboardService.ts(2,59): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/DashboardService.ts(3,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/services/ProjectService.ts(2,99): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/ProjectService.ts(3,29): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/services/ProjectService.ts(4,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/services/TaskService.ts(2,93): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/TaskService.ts(3,29): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/services/TaskService.ts(4,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/services/TeamService.ts(2,48): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/TeamService.ts(3,29): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/services/TeamService.ts(4,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+backend/src/services/UserService.ts(2,61): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+backend/src/services/UserService.ts(4,29): error TS2307: Cannot find module '@/middleware/errorHandler' or its corresponding type declarations.
+backend/src/services/UserService.ts(5,24): error TS2307: Cannot find module '@/utils/logger' or its corresponding type declarations.
+dev-server.ts(1,21): error TS2307: Cannot find module 'express' or its corresponding type declarations.
+dev-server.ts(2,18): error TS2307: Cannot find module 'cors' or its corresponding type declarations.
+dev-server.ts(3,26): error TS2307: Cannot find module 'cookie-parser' or its corresponding type declarations.
+dev-server.ts(4,17): error TS2307: Cannot find module 'jsonwebtoken' or its corresponding type declarations.
+dev-server.ts(5,28): error TS2307: Cannot find module './api/kernel/execute' or its corresponding type declarations.
+dev-server.ts(6,28): error TS2307: Cannot find module './api/kernel/metrics' or its corresponding type declarations.
+dev-server.ts(7,26): error TS2307: Cannot find module './api/kernel/audit' or its corresponding type declarations.
+dev-server.ts(8,27): error TS2307: Cannot find module './api/observability/ingest' or its corresponding type declarations.
+dev-server.ts(9,28): error TS2307: Cannot find module './api/observability/summary' or its corresponding type declarations.
+dev-server.ts(10,27): error TS2307: Cannot find module './api/observability/stream' or its corresponding type declarations.
+dev-server.ts(11,29): error TS2307: Cannot find module './api/outbound/profiles' or its corresponding type declarations.
+dev-server.ts(12,30): error TS2307: Cannot find module './api/outbound/artifacts' or its corresponding type declarations.
+dev-server.ts(13,30): error TS2307: Cannot find module './api/outbound/investors' or its corresponding type declarations.
+dev-server.ts(14,25): error TS2307: Cannot find module './api/outbound/send' or its corresponding type declarations.
+dev-server.ts(15,38): error TS2307: Cannot find module './api/outbound/integrations/github' or its corresponding type declarations.
+dev-server.ts(16,25): error TS2307: Cannot find module './api/outbound/logs' or its corresponding type declarations.
+dev-server.ts(63,30): error TS7006: Parameter 'req' implicitly has an 'any' type.
+dev-server.ts(63,35): error TS7006: Parameter 'res' implicitly has an 'any' type.
+dev-server.ts(97,31): error TS7006: Parameter 'req' implicitly has an 'any' type.
+dev-server.ts(97,36): error TS7006: Parameter 'res' implicitly has an 'any' type.
+dev-server.ts(103,26): error TS7006: Parameter 'req' implicitly has an 'any' type.
+dev-server.ts(103,31): error TS7006: Parameter 'res' implicitly has an 'any' type.
+frontend/src/App.tsx(2,25): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+frontend/src/App.tsx(3,24): error TS2307: Cannot find module '@/components/Layout' or its corresponding type declarations.
+frontend/src/App.tsx(4,27): error TS2307: Cannot find module '@/pages/auth/LoginPage' or its corresponding type declarations.
+frontend/src/App.tsx(5,31): error TS2307: Cannot find module '@/pages/DashboardPage' or its corresponding type declarations.
+frontend/src/App.tsx(6,30): error TS2307: Cannot find module '@/pages/projects/ProjectsPage' or its corresponding type declarations.
+frontend/src/App.tsx(7,35): error TS2307: Cannot find module '@/pages/projects/ProjectDetailPage' or its corresponding type declarations.
+frontend/src/App.tsx(8,27): error TS2307: Cannot find module '@/pages/tasks/TasksPage' or its corresponding type declarations.
+frontend/src/App.tsx(9,32): error TS2307: Cannot find module '@/pages/tasks/TaskDetailPage' or its corresponding type declarations.
+frontend/src/App.tsx(10,27): error TS2307: Cannot find module '@/pages/teams/TeamsPage' or its corresponding type declarations.
+frontend/src/App.tsx(11,32): error TS2307: Cannot find module '@/pages/teams/TeamDetailPage' or its corresponding type declarations.
+frontend/src/App.tsx(12,27): error TS2307: Cannot find module '@/pages/users/UsersPage' or its corresponding type declarations.
+frontend/src/App.tsx(13,30): error TS2307: Cannot find module '@/pages/SettingsPage' or its corresponding type declarations.
+frontend/src/App.tsx(14,30): error TS2307: Cannot find module '@/pages/NotFoundPage' or its corresponding type declarations.
+frontend/src/components/Header.tsx(2,25): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+frontend/src/components/Header.tsx(3,26): error TS2307: Cannot find module '@/contexts/ThemeContext' or its corresponding type declarations.
+frontend/src/components/ProjectChart.tsx(1,50): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/components/Sidebar.tsx(10,3): error TS2305: Module '"lucide-react"' has no exported member 'Logo'.
+frontend/src/components/Sidebar.tsx(12,25): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+frontend/src/contexts/AuthContext.tsx(2,22): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/contexts/AuthContext.tsx(3,29): error TS2307: Cannot find module '@/services/authService' or its corresponding type declarations.
+frontend/src/main.tsx(6,30): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+frontend/src/main.tsx(7,31): error TS2307: Cannot find module '@/contexts/ThemeContext' or its corresponding type declarations.
+frontend/src/main.tsx(8,8): error TS2613: Module '"/workspace/frontend/src/App"' has no default export. Did you mean to use 'import { App } from "/workspace/frontend/src/App"' instead?
+frontend/src/main.tsx(8,17): error TS5097: An import path can only end with a '.tsx' extension when 'allowImportingTsExtensions' is enabled.
+frontend/src/pages/DashboardPage.tsx(2,32): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/pages/DashboardPage.tsx(3,34): error TS2307: Cannot find module '@/services/dashboardService' or its corresponding type declarations.
+frontend/src/pages/DashboardPage.tsx(4,26): error TS2307: Cannot find module '@/components/StatCard' or its corresponding type declarations.
+frontend/src/pages/DashboardPage.tsx(5,30): error TS2307: Cannot find module '@/components/ProjectChart' or its corresponding type declarations.
+frontend/src/pages/DashboardPage.tsx(6,27): error TS2307: Cannot find module '@/components/TaskChart' or its corresponding type declarations.
+frontend/src/pages/DashboardPage.tsx(7,32): error TS2307: Cannot find module '@/components/RecentActivity' or its corresponding type declarations.
+frontend/src/pages/auth/LoginPage.tsx(7,25): error TS2307: Cannot find module '@/contexts/AuthContext' or its corresponding type declarations.
+frontend/src/pages/auth/LoginPage.tsx(8,10): error TS2305: Module '"lucide-react"' has no exported member 'Logo'.
+frontend/src/pages/auth/LoginPage.tsx(165,44): error TS2353: Object literal may only specify known properties, and 'email' does not exist in type 'BaseSyntheticEvent<object, any, any>'.
+frontend/src/pages/auth/LoginPage.tsx(174,44): error TS2353: Object literal may only specify known properties, and 'email' does not exist in type 'BaseSyntheticEvent<object, any, any>'.
+frontend/src/pages/projects/ProjectDetailPage.tsx(4,32): error TS2307: Cannot find module '@/services/projectService' or its corresponding type declarations.
+frontend/src/pages/projects/ProjectsPage.tsx(5,32): error TS2307: Cannot find module '@/services/projectService' or its corresponding type declarations.
+frontend/src/pages/projects/ProjectsPage.tsx(6,50): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/pages/projects/ProjectsPage.tsx(143,45): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ LOW: string; MEDIUM: string; HIGH: string; CRITICAL: string; }'.
+frontend/src/pages/projects/ProjectsPage.tsx(156,47): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ PLANNING: string; IN_PROGRESS: string; ON_HOLD: string; COMPLETED: string; CANCELLED: string; }'.
+frontend/src/pages/tasks/TasksPage.tsx(5,29): error TS2307: Cannot find module '@/services/taskService' or its corresponding type declarations.
+frontend/src/pages/tasks/TasksPage.tsx(6,44): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/pages/tasks/TasksPage.tsx(127,16): error TS2304: Cannot find name 'CheckSquare'.
+frontend/src/pages/tasks/TasksPage.tsx(190,49): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ TODO: string; IN_PROGRESS: string; IN_REVIEW: string; DONE: string; BLOCKED: string; }'.
+frontend/src/pages/tasks/TasksPage.tsx(195,49): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ LOW: string; MEDIUM: string; HIGH: string; CRITICAL: string; }'.
+frontend/src/services/apiClient.ts(4,34): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+frontend/src/services/authService.ts(1,52): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/services/dashboardService.ts(1,59): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/services/projectService.ts(1,73): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+frontend/src/services/taskService.ts(1,67): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+playwright.config.ts(1,39): error TS2307: Cannot find module '@playwright/test' or its corresponding type declarations.
+proxy.ts(1,31): error TS2307: Cannot find module '@/lib/supabase/proxy' or its corresponding type declarations.
+vite.config.ts(3,30): error TS2307: Cannot find module 'vite' or its corresponding type declarations.
+vite.config.ts(4,19): error TS2307: Cannot find module '@vitejs/plugin-react' or its corresponding type declarations.

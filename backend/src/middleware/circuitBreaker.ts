@@ -3,7 +3,7 @@
  * Prevents cascading failures when external services are unavailable
  */
 
-import { CircuitBreakerError } from '@enterprise/shared/types/errors';
+import { CircuitBreakerError } from '@/types/errors';
 import logger from '../utils/logger';
 
 interface CircuitBreakerConfig {

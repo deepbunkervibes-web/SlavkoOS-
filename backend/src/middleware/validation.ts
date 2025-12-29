@@ -5,8 +5,8 @@
 
 import { Request, Response, NextFunction } from 'express';
 import { ZodError, ZodSchema } from 'zod';
-import { ValidationError } from '@enterprise/shared/types/errors';
-import logger from '../utils/logger';
+import { ValidationError } from '@/types/errors';
+import logger from '@/utils/logger';
 
 /**
  * Validate request body against Zod schema
@@ -21,7 +21,7 @@ export const validateBody = <T>(schema: ZodSchema<T>) => {
         const validationError = new ValidationError(
           'Request body validation failed',
           {
-            requestId: req.id,
+            requestId: req.id || 'unknown',
             path: req.path,
             method: req.method,
             additionalData: {
@@ -37,7 +37,7 @@ export const validateBody = <T>(schema: ZodSchema<T>) => {
         logger.warn('Validation failed', {
           errors: error.errors,
           body: req.body,
-          requestId: req.id
+          requestId: req.id || 'unknown'
         });
 
         res.status(400).json(validationError.toJSON());
@@ -61,7 +61,7 @@ export const validateQuery = <T>(schema: ZodSchema<T>) => {
         const validationError = new ValidationError(
           'Query parameters validation failed',
           {
-            requestId: req.id,
+            requestId: req.id || 'unknown',
             path: req.path,
             method: req.method,
             additionalData: {
@@ -77,7 +77,7 @@ export const validateQuery = <T>(schema: ZodSchema<T>) => {
         logger.warn('Query validation failed', {
           errors: error.errors,
           query: req.query,
-          requestId: req.id
+          requestId: req.id || 'unknown'
         });
 
         res.status(400).json(validationError.toJSON());
@@ -101,7 +101,7 @@ export const validateParams = <T>(schema: ZodSchema<T>) => {
         const validationError = new ValidationError(
           'URL parameters validation failed',
           {
-            requestId: req.id,
+            requestId: req.id || 'unknown',
             path: req.path,
             method: req.method,
             additionalData: {
@@ -117,7 +117,7 @@ export const validateParams = <T>(schema: ZodSchema<T>) => {
         logger.warn('Params validation failed', {
           errors: error.errors,
           params: req.params,
-          requestId: req.id
+          requestId: req.id || 'unknown'
         });
 
         res.status(400).json(validationError.toJSON());
