@@ -1,0 +1,10 @@
+import { useParams, Link } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { ArrowLeft, Edit, Calendar, User, CheckSquare } from 'lucide-react'
+import { projectService } from '@/services/projectService'
+
+export function ProjectDetailPage() {
+  const { id } = useParams<{ id: string }>()
+
+  const { data: projectData, isLoading, error } = useQuery({
+    queryKey: ['project', id],

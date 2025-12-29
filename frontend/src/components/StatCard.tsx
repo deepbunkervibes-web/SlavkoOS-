@@ -7,13 +7,7 @@ interface StatCardProps {
   color: 'blue' | 'green' | 'purple' | 'orange' | 'red'
 }
 
-const colorClasses = {
-  blue: 'bg-blue-500',
-  green: 'bg-green-500',
-  purple: 'bg-purple-500',
-  orange: 'bg-orange-500',
-  red: 'bg-red-500',
-}
+// Removed unused colorClasses variable
 
 const bgColorClasses = {
   blue: 'bg-blue-50',

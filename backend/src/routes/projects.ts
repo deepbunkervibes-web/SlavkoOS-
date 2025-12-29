@@ -45,7 +45,7 @@ router.post('/', validate(createProjectSchema), asyncHandler(async (req, res) =>
   res.status(201).json(result);
 }));
 
-router.get('/', validateQuery(projectFiltersSchema), asyncHandler(async (req, res) => {
+router.get('/', validate(projectFiltersSchema), asyncHandler(async (req, res) => {
   const filters = req.query as any;
   const result = await projectService.getProjects(filters);
   res.json(result);

@@ -1,0 +1,21 @@
+
+            <div className="mt-6 grid grid-cols-1 gap-3">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSubmit(onSubmit)({ email: 'admin@enterprise.com', password: 'admin123' } as LoginFormData);
+                }}
+                className="btn btn-outline w-full justify-center"
+              >
+                Admin Demo
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSubmit(onSubmit)({ email: 'user@enterprise.com', password: 'user123' } as LoginFormData);
+                }}
+                className="btn btn-outline w-full justify-center"
+              >
+                User Demo

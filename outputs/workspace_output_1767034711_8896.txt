@@ -1,0 +1,5 @@
+8:import { Logo, Eye, EyeOff } from 'lucide-react'
+11:  email: z.string().email('Invalid email address'),
+49:            <Logo className="h-8 w-8 text-white" />
+165:                  handleSubmit(onSubmit)({ email: 'admin@enterprise.com', password: 'admin123' })
+174:                  handleSubmit(onSubmit)({ email: 'user@enterprise.com', password: 'user123' })

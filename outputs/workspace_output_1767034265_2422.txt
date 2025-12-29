@@ -1,0 +1,16 @@
+src/middleware/audit.ts(18,5): error TS2322: Type '(...args: unknown[]) => void' is not assignable to type '{ (cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined): Response<...>; }'.
+src/middleware/audit.ts(35,30): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type '[chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined]'.
+src/middleware/security.ts(244,7): error TS2322: Type 'Response<any, Record<string, any>>' is not assignable to type 'void'.
+src/middleware/validation.ts(57,7): error TS2322: Type 'T' is not assignable to type 'ParsedQs'.
+src/middleware/validation.ts(97,7): error TS2322: Type 'T' is not assignable to type 'ParamsDictionary'.
+src/routes/projects.ts(7,41): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/routes/projects.ts(48,31): error TS2345: Argument of type 'ObjectSchema<any>' is not assignable to parameter of type 'ZodType<unknown, ZodTypeDef, unknown>'.
+src/routes/tasks.ts(7,38): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/routes/tasks.ts(51,31): error TS2345: Argument of type 'ObjectSchema<any>' is not assignable to parameter of type 'ZodType<unknown, ZodTypeDef, unknown>'.
+src/routes/teams.ts(7,26): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/routes/users.ts(7,26): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/services/DashboardService.ts(2,59): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/services/ProjectService.ts(2,99): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/services/TaskService.ts(2,93): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/services/TeamService.ts(2,48): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.
+src/services/UserService.ts(2,61): error TS2307: Cannot find module '@enterprise/shared' or its corresponding type declarations.

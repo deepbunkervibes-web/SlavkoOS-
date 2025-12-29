@@ -48,7 +48,7 @@ router.post('/', validate(createTaskSchema), asyncHandler(async (req, res) => {
   res.status(201).json(result);
 }));
 
-router.get('/', validateQuery(taskFiltersSchema), asyncHandler(async (req, res) => {
+router.get('/', validate(taskFiltersSchema), asyncHandler(async (req, res) => {
   const filters = req.query as any;
   const result = await taskService.getTasks(filters);
   res.json(result);

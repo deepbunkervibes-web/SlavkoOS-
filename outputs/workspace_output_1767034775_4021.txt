@@ -1,0 +1,11 @@
+    firstName: string
+    lastName: string
+    password: string
+  }) => {
+    try {
+      const response = await authService.register(userData)
+      if (response.success && response.data) {
+        const { user, token } = response.data
+        setUser(user)
+        setToken(token)
+        localStorage.setItem('token', token)

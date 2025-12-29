@@ -170,7 +170,7 @@ export class TaskService {
       // If status is being set to DONE, set completedAt
       if (updates.status === 'DONE') {
         updates.completedAt = new Date();
-      } else if (updates.status && updates.status !== 'DONE') {
+      } else if (updates.status && ['IN_PROGRESS', 'TODO', 'IN_REVIEW', 'BLOCKED'].includes(updates.status)) {
         updates.completedAt = null;
       }
 

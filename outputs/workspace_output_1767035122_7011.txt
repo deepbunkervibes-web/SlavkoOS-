@@ -1,0 +1,5 @@
+import { useParams, Link } from 'react-router-dom'
+import { ArrowLeft, Edit, User, Calendar, Clock } from 'lucide-react'
+
+export function TaskDetailPage() {
+  const { id } = useParams<{ id: string }>()

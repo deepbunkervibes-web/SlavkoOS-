@@ -1,0 +1,1 @@
+src/middleware/audit.ts(18,5): error TS2322: Type '(this: Response, ...args: any[]) => void' is not assignable to type '{ (cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, cb?: (() => void) | undefined): Response<any, Record<string, any>>; (chunk: any, encoding: BufferEncoding, cb?: (() => void) | undefined): Response<...>; }'.

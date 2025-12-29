@@ -1,0 +1,6 @@
+total 20
+drwxr-xr-x 3 root root 4096 Dec 29 18:51 .
+drwxr-xr-x 5 root root 4096 Dec 29 18:51 ..
+-rw-r--r-- 1 root root   25 Dec 29 18:51 index.d.ts
+-rw-r--r-- 1 root root  800 Dec 29 18:51 index.js
+drwxr-xr-x 2 root root 4096 Dec 29 18:51 types

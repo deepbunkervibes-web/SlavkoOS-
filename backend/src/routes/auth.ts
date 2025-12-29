@@ -6,6 +6,7 @@ import Joi from 'joi';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
+import { UserRole } from '@enterprise/shared';
 
 const router = Router();
 const prisma = new PrismaClient();
@@ -39,7 +40,7 @@ router.post('/register', validate(registerSchema), asyncHandler(async (req, res)
     email,
     firstName,
     lastName,
-    role: 'DEVELOPER', // Default role
+    role: UserRole.DEVELOPER, // Default role
     password
   });
 

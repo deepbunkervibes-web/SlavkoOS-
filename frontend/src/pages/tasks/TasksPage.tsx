@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Plus, Search, Filter } from 'lucide-react'
+import { Plus, Search, Filter, CheckSquare } from 'lucide-react'
 import { taskService } from '@/services/taskService'
-import { Task, TaskStatus, Priority } from '@enterprise/shared'
+import { TaskWithRelations, TaskStatus, Priority } from '@enterprise/shared'
 
 const statusColors = {
   TODO: 'badge-gray',
@@ -152,7 +152,7 @@ export function TasksPage() {
                 </tr>
               </thead>
               <tbody className="table-body">
-                {tasks.map((task: Task) => (
+                {tasks.map((task: TaskWithRelations) => (
                   <tr key={task.id} className="hover:bg-gray-50">
                     <td className="table-cell">
                       <div>

@@ -1,0 +1,2 @@
+23:export function ProjectsPage() {
+136:          {projects.map((project: Project) => (

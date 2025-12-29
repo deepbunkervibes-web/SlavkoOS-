@@ -1,0 +1,26 @@
+    }
+  }
+
+  const register = async (userData: {
+    email: string
+    firstName: string
+    lastName: string
+    password: string
+  }) => {
+    try {
+      const response = await authService.register(userData)
+      if (response.success && response.data) {
+        const { user, token } = response.data
+        setUser(user)
+        setToken(token)
+        localStorage.setItem('token', token)
+      } else {
+        throw new Error(response.error || 'Registration failed')
+      }
+    } catch (error) {
+      throw error
+    }
+  }
+
+  const logout = () => {
+    setUser(null)

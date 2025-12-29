@@ -15,7 +15,7 @@ export const auditLogMiddleware = (action: string) => {
     const originalEnd = res.end.bind(res);
 
     // Override end to log after response
-    res.end = (...args: unknown[]) => {
+    (res.end as any) = (...args: any[]): void => {
       const userId = (req as any).user?.id || 'anonymous';
       const result = res.statusCode >= 200 && res.statusCode < 400 ? 'success' : 'failure';
 
@@ -32,7 +32,7 @@ export const auditLogMiddleware = (action: string) => {
         result
       );
 
-      originalEnd.apply(res, args as unknown[]);
+      originalEnd(...args);
     };
 
     next();

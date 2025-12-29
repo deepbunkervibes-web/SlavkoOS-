@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import toast from 'react-hot-toast'
 import { useAuth } from '@/contexts/AuthContext'
-import { Logo, Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -46,7 +46,7 @@ export function LoginPage() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <div className="h-12 w-12 bg-primary-600 rounded-lg flex items-center justify-center">
-            <Logo className="h-8 w-8 text-white" />
+            <span className="h-8 w-8 text-white font-bold text-2xl">FD</span>
           </div>
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -161,8 +161,9 @@ export function LoginPage() {
             <div className="mt-6 grid grid-cols-1 gap-3">
               <button
                 type="button"
-                onClick={() => {
-                  handleSubmit(onSubmit)({ email: 'admin@enterprise.com', password: 'admin123' })
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSubmit({ email: 'admin@enterprise.com', password: 'admin123' } as LoginFormData);
                 }}
                 className="btn btn-outline w-full justify-center"
               >
@@ -170,8 +171,9 @@ export function LoginPage() {
               </button>
               <button
                 type="button"
-                onClick={() => {
-                  handleSubmit(onSubmit)({ email: 'user@enterprise.com', password: 'user123' })
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSubmit({ email: 'user@enterprise.com', password: 'user123' } as LoginFormData);
                 }}
                 className="btn btn-outline w-full justify-center"
               >

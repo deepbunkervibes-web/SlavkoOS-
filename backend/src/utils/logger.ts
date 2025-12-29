@@ -74,7 +74,7 @@ const transports = [
 ];
 
 // Create the logger
-const logger = winston.createLogger({
+const loggerInstance = winston.createLogger({
   level: process.env.LOG_LEVEL || 'info',
   levels,
   format,
@@ -85,7 +85,7 @@ const logger = winston.createLogger({
 
 // If not in production, also log to console with more details
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(
+  loggerInstance.add(
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize({ all: true }),
@@ -101,7 +101,7 @@ if (process.env.NODE_ENV !== 'production') {
  * Create a child logger with request context
  */
 export const createRequestLogger = (req: Request) => {
-  return logger.child({
+  return loggerInstance.child({
     requestId: req.id,
     method: req.method,
     path: req.path,
@@ -119,7 +119,7 @@ export const auditLog = (
   details: Record<string, unknown>,
   result: 'success' | 'failure'
 ): void => {
-  logger.info('Audit Log', {
+  loggerInstance.info('Audit Log', {
     action,
     userId,
     details,
@@ -136,7 +136,7 @@ export const performanceLog = (
   duration: number,
   metadata?: Record<string, unknown>
 ): void => {
-  logger.info('Performance', {
+  loggerInstance.info('Performance', {
     operation,
     duration: `${duration}ms`,
     ...metadata
@@ -153,7 +153,7 @@ export const securityLog = (
 ): void => {
   const level = severity === 'critical' || severity === 'high' ? 'error' : 'warn';
   
-  logger[level]('Security Event', {
+  loggerInstance[level]('Security Event', {
     event,
     severity,
     details,
@@ -161,4 +161,6 @@ export const securityLog = (
   });
 };
 
-export default logger;
+// Export both named and default
+export const logger = loggerInstance;
+export default loggerInstance;

@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { ArrowLeft, Edit, Calendar, User, CheckSquare } from 'lucide-react'
 import { projectService } from '@/services/projectService'
+import { ProjectWithRelations } from '@enterprise/shared'
 
 export function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -28,7 +29,7 @@ export function ProjectDetailPage() {
     )
   }
 
-  const project = projectData.data
+  const project = projectData.data as ProjectWithRelations
 
   return (
     <div className="space-y-6">

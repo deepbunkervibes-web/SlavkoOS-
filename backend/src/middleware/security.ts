@@ -241,10 +241,11 @@ export const bodySizeLimit = (maxSize: string = '1mb') => {
     const maxBytes = parseSize(maxSize);
     
     if (contentLength > maxBytes) {
-      return res.status(413).json({
+      res.status(413).json({
         success: false,
         error: `Request body too large. Maximum size: ${maxSize}`
       });
+      return;
     }
     
     next();

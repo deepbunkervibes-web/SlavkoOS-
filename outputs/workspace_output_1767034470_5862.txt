@@ -1,0 +1,188 @@
+// Base entity types
+export interface BaseEntity {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// User types
+export interface User extends BaseEntity {
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: UserRole;
+  avatar?: string;
+  isActive: boolean;
+  lastLoginAt?: Date;
+}
+
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  PROJECT_MANAGER = 'PROJECT_MANAGER',
+  DEVELOPER = 'DEVELOPER',
+  VIEWER = 'VIEWER'
+}
+
+// Project types
+export interface Project extends BaseEntity {
+  name: string;
+  description: string;
+  status: ProjectStatus;
+  priority: Priority;
+  startDate: Date;
+  endDate?: Date;
+  budget?: number;
+  ownerId: string;
+  teamId?: string;
+  tags: string[];
+}
+
+export enum ProjectStatus {
+  PLANNING = 'PLANNING',
+  IN_PROGRESS = 'IN_PROGRESS',
+  ON_HOLD = 'ON_HOLD',
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED'
+}
+
+export enum Priority {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
+  CRITICAL = 'CRITICAL'
+}
+
+// Task types
+export interface Task extends BaseEntity {
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  priority: Priority;
+  projectId: string;
+  assigneeId?: string;
+  reporterId: string;
+  estimatedHours?: number;
+  actualHours?: number;
+  dueDate?: Date;
+  completedAt?: Date;
+  tags: string[];
+  dependencies: string[];
+}
+
+export enum TaskStatus {
+  TODO = 'TODO',
+  IN_PROGRESS = 'IN_PROGRESS',
+  IN_REVIEW = 'IN_REVIEW',
+  DONE = 'DONE',
+  BLOCKED = 'BLOCKED'
+}
+
+// Team types
+export interface Team extends BaseEntity {
+  name: string;
+  description?: string;
+  leadId: string;
+  members: TeamMember[];
+}
+
+export interface TeamMember {
+  userId: string;
+  role: TeamRole;
+  joinedAt: Date;
+}
+
+export enum TeamRole {
+  LEAD = 'LEAD',
+  SENIOR = 'SENIOR',
+  MEMBER = 'MEMBER'
+}
+
+// API Response types
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
+}
+
+export interface PaginatedResponse<T> extends ApiResponse<T[]> {
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
+
+// Dashboard types
+export interface DashboardStats {
+  totalProjects: number;
+  activeProjects: number;
+  completedProjects: number;
+  totalTasks: number;
+  completedTasks: number;
+  overdueTasks: number;
+  teamMembers: number;
+  productivity: number;
+}
+
+export interface ProjectChart {
+  name: string;
+  projects: number;
+  tasks: number;
+  completed: number;
+}
+
+// Form types
+export interface CreateUserInput {
+  email: string;
+  firstName: string;
+  lastName: string;
+  role: UserRole;
+  password: string;
+}
+
+export interface CreateProjectInput {
+  name: string;
+  description: string;
+  priority: Priority;
+  startDate: Date;
+  endDate?: Date;
+  budget?: number;
+  tags: string[];
+}
+
+export interface CreateTaskInput {
+  title: string;
+  description?: string;
+  priority: Priority;
+  projectId: string;
+  assigneeId?: string;
+  estimatedHours?: number;
+  dueDate?: Date;
+  tags: string[];
+}
+
+// Filter and search types
+export interface PaginationParams {
+  page: number;
+  limit: number;
+}
+
+export interface ProjectFilters extends PaginationParams {
+  status?: ProjectStatus;
+  priority?: Priority;
+  ownerId?: string;
+  search?: string;
+}
+
+export interface TaskFilters extends PaginationParams {
+  status?: TaskStatus;
+  priority?: Priority;
+  projectId?: string;
+  assigneeId?: string;
+  search?: string;
+}
+
+// Utility types
+export type UpdatePartial<T> = Partial<Omit<T, 'id' | 'createdAt' | 'updatedAt'>>;

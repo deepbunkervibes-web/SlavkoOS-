@@ -1,0 +1,18 @@
+import { useQuery } from '@tanstack/react-query'
+import { DashboardStats } from '@enterprise/shared'
+import { dashboardService } from '@/services/dashboardService'
+import { StatCard } from '@/components/StatCard'
+import { ProjectChart } from '@/components/ProjectChart'
+import { TaskChart } from '@/components/TaskChart'
+import { RecentActivity } from '@/components/RecentActivity'
+import { 
+  FolderKanban, 
+  CheckSquare, 
+  Users, 
+  TrendingUp,
+  Clock,
+  AlertTriangle 
+} from 'lucide-react'
+
+export function DashboardPage() {
+  const { data: stats, isLoading: statsLoading } = useQuery({

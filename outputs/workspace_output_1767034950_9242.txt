@@ -1,0 +1,20 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { Plus, Search, Filter } from 'lucide-react'
+import { taskService } from '@/services/taskService'
+import { Task, TaskStatus, Priority } from '@enterprise/shared'
+
+const statusColors = {
+  TODO: 'badge-gray',
+  IN_PROGRESS: 'badge-blue',
+  IN_REVIEW: 'badge-warning',
+  DONE: 'badge-success',
+  BLOCKED: 'badge-error',
+}
+
+const priorityColors = {
+  LOW: 'badge-gray',
+  MEDIUM: 'badge-info',
+  HIGH: 'badge-warning',
+  CRITICAL: 'badge-error',

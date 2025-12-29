@@ -1,0 +1,31 @@
+src/pages/DashboardPage.tsx(12,3): error TS6133: 'TrendingUp' is declared but its value is never read.
+src/pages/DashboardPage.tsx(14,3): error TS6133: 'AlertTriangle' is declared but its value is never read.
+src/pages/SettingsPage.tsx(1,10): error TS6133: 'Settings' is declared but its value is never read.
+src/pages/auth/LoginPage.tsx(49,14): error TS2304: Cannot find name 'Logo'.
+src/pages/auth/LoginPage.tsx(166,42): error TS2345: Argument of type '{ email: string; password: string; }' is not assignable to parameter of type 'BaseSyntheticEvent<object, any, any>'.
+  Type '{ email: string; password: string; }' is missing the following properties from type 'BaseSyntheticEvent<object, any, any>': nativeEvent, currentTarget, target, bubbles, and 11 more.
+src/pages/auth/LoginPage.tsx(176,42): error TS2345: Argument of type '{ email: string; password: string; }' is not assignable to parameter of type 'BaseSyntheticEvent<object, any, any>'.
+  Type '{ email: string; password: string; }' is missing the following properties from type 'BaseSyntheticEvent<object, any, any>': nativeEvent, currentTarget, target, bubbles, and 11 more.
+src/pages/projects/ProjectDetailPage.tsx(81,34): error TS2551: Property 'owner' does not exist on type 'Project'. Did you mean 'ownerId'?
+src/pages/projects/ProjectDetailPage.tsx(81,61): error TS2551: Property 'owner' does not exist on type 'Project'. Did you mean 'ownerId'?
+src/pages/projects/ProjectDetailPage.tsx(102,69): error TS2339: Property '_count' does not exist on type 'Project'.
+src/pages/projects/ProjectDetailPage.tsx(116,24): error TS2339: Property 'tasks' does not exist on type 'Project'.
+src/pages/projects/ProjectDetailPage.tsx(116,41): error TS2339: Property 'tasks' does not exist on type 'Project'.
+src/pages/projects/ProjectDetailPage.tsx(118,28): error TS2339: Property 'tasks' does not exist on type 'Project'.
+src/pages/projects/ProjectsPage.tsx(4,24): error TS6133: 'Filter' is declared but its value is never read.
+src/pages/projects/ProjectsPage.tsx(164,32): error TS2339: Property '_count' does not exist on type 'Project'.
+src/pages/projects/ProjectsPage.tsx(171,32): error TS2551: Property 'owner' does not exist on type 'Project'. Did you mean 'ownerId'?
+src/pages/projects/ProjectsPage.tsx(171,59): error TS2551: Property 'owner' does not exist on type 'Project'. Did you mean 'ownerId'?
+src/pages/tasks/TaskDetailPage.tsx(2,27): error TS6133: 'User' is declared but its value is never read.
+src/pages/tasks/TaskDetailPage.tsx(2,33): error TS6133: 'Calendar' is declared but its value is never read.
+src/pages/tasks/TaskDetailPage.tsx(2,43): error TS6133: 'Clock' is declared but its value is never read.
+src/pages/tasks/TasksPage.tsx(127,16): error TS2304: Cannot find name 'CheckSquare'.
+src/pages/tasks/TasksPage.tsx(167,47): error TS2551: Property 'project' does not exist on type 'Task'. Did you mean 'projectId'?
+src/pages/tasks/TasksPage.tsx(170,31): error TS2551: Property 'project' does not exist on type 'Task'. Did you mean 'projectId'?
+src/pages/tasks/TasksPage.tsx(174,29): error TS2551: Property 'assignee' does not exist on type 'Task'. Did you mean 'assigneeId'?
+src/pages/tasks/TasksPage.tsx(178,37): error TS2551: Property 'assignee' does not exist on type 'Task'. Did you mean 'assigneeId'?
+src/pages/tasks/TasksPage.tsx(178,67): error TS2551: Property 'assignee' does not exist on type 'Task'. Did you mean 'assigneeId'?
+src/pages/tasks/TasksPage.tsx(182,35): error TS2551: Property 'assignee' does not exist on type 'Task'. Did you mean 'assigneeId'?
+src/pages/tasks/TasksPage.tsx(182,61): error TS2551: Property 'assignee' does not exist on type 'Task'. Did you mean 'assigneeId'?
+src/pages/teams/TeamDetailPage.tsx(2,27): error TS6133: 'Users' is declared but its value is never read.
+src/pages/teams/TeamsPage.tsx(1,1): error TS6133: 'Link' is declared but its value is never read.

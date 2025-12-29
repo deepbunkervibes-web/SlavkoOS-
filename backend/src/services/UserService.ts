@@ -4,10 +4,16 @@ import bcrypt from 'bcryptjs';
 import { createError } from '@/middleware/errorHandler';
 import { logger } from '@/utils/logger';
 
+// Type for user with password hash (for internal use)
+type UserWithPasswordHash = User & { passwordHash: string };
+
+// Type for user without password hash (for API responses)
+type UserWithoutPasswordHash = Omit<User, 'passwordHash'>;
+
 export class UserService {
   constructor(private prisma: PrismaClient) {}
 
-  async createUser(userData: CreateUserInput): Promise<ApiResponse<User>> {
+  async createUser(userData: CreateUserInput): Promise<ApiResponse<UserWithoutPasswordHash>> {
     try {
       // Check if user already exists
       const existingUser = await this.prisma.user.findUnique({
@@ -52,7 +58,7 @@ export class UserService {
     }
   }
 
-  async getUserById(id: string): Promise<ApiResponse<User>> {
+  async getUserById(id: string): Promise<ApiResponse<UserWithoutPasswordHash>> {
     try {
       const user = await this.prisma.user.findUnique({
         where: { id },
@@ -125,11 +131,11 @@ export class UserService {
     }
   }
 
-  async updateUser(id: string, updates: UpdatePartial<User>): Promise<ApiResponse<User>> {
+  async updateUser(id: string, updates: UpdatePartial<UserWithoutPasswordHash>): Promise<ApiResponse<UserWithoutPasswordHash>> {
     try {
       // Don't allow password update through this method
       if ('passwordHash' in updates) {
-        delete updates.passwordHash;
+        delete (updates as any).passwordHash;
       }
 
       const user = await this.prisma.user.update({
@@ -180,11 +186,11 @@ export class UserService {
     }
   }
 
-  async getUserByEmail(email: string): Promise<User | null> {
+  async getUserByEmail(email: string): Promise<UserWithPasswordHash | null> {
     try {
       return await this.prisma.user.findUnique({
         where: { email }
-      });
+      }) as UserWithPasswordHash | null;
     } catch (error) {
       logger.error('Error getting user by email:', error);
       throw error;

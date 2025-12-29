@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Plus, Search, Filter } from 'lucide-react'
+import { Plus, Search } from 'lucide-react'
 import { projectService } from '@/services/projectService'
-import { Project, ProjectStatus, Priority } from '@enterprise/shared'
+import { ProjectWithRelations, ProjectStatus, Priority } from '@enterprise/shared'
 
 const statusColors = {
   PLANNING: 'badge-gray',
@@ -133,7 +133,7 @@ export function ProjectsPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project: Project) => (
+          {projects.map((project: ProjectWithRelations) => (
             <div key={project.id} className="card hover:shadow-md transition-shadow">
               <div className="card-header">
                 <div className="flex justify-between items-start">

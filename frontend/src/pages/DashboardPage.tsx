@@ -5,13 +5,11 @@ import { StatCard } from '@/components/StatCard'
 import { ProjectChart } from '@/components/ProjectChart'
 import { TaskChart } from '@/components/TaskChart'
 import { RecentActivity } from '@/components/RecentActivity'
-import { 
-  FolderKanban, 
-  CheckSquare, 
-  Users, 
-  TrendingUp,
-  Clock,
-  AlertTriangle 
+import {
+  FolderKanban,
+  CheckSquare,
+  Users,
+  Clock
 } from 'lucide-react'
 
 export function DashboardPage() {

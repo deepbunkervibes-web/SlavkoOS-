@@ -1,0 +1,6 @@
+  const { data: tasksData, isLoading, error } = useQuery({
+    queryKey: ['tasks', { search, status: statusFilter, priority: priorityFilter }],
+    queryFn: () => taskService.getTasks({
+      page: 1,
+      limit: 50,
+      search,

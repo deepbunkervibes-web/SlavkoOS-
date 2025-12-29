@@ -1,0 +1,20 @@
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts'
+
+interface TaskChartProps {
+  data: {
+    statusBreakdown: Array<{ status: string; _count: { status: number } }>
+    priorityBreakdown: Array<{ priority: string; _count: { priority: number } }>
+    recentTasks: Array<any>
+  }
+}
+
+const COLORS = {
+  TODO: '#94a3b8',
+  'IN_PROGRESS': '#3b82f6',
+  'IN_REVIEW': '#f59e0b',
+  DONE: '#10b981',
+  BLOCKED: '#ef4444',
+}
+
+const statusLabels = {
+  TODO: 'To Do',

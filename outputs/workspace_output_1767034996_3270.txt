@@ -1,0 +1,35 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { Plus, Search, Filter } from 'lucide-react'
+import { projectService } from '@/services/projectService'
+import { Project, ProjectStatus, Priority } from '@enterprise/shared'
+
+const statusColors = {
+  PLANNING: 'badge-gray',
+  IN_PROGRESS: 'badge-blue',
+  ON_HOLD: 'badge-warning',
+  COMPLETED: 'badge-success',
+  CANCELLED: 'badge-error',
+}
+
+const priorityColors = {
+  LOW: 'badge-gray',
+  MEDIUM: 'badge-info',
+  HIGH: 'badge-warning',
+  CRITICAL: 'badge-error',
+}
+
+export function ProjectsPage() {
+  const [search, setSearch] = useState('')
+  const [statussetStatusFilter] = useState<string>('')
+  const [prioritysetPriorityFilter] = useState<string>('')
+
+  const { data: projectsData, isLoading, error } = useQuery({
+    queryKey: ['projects', { search, status: statuspriority: priorityFilter }],
+    queryFn: () => projectService.getProjects({
+      page: 1,
+      limit: 20,
+      search,
+      status: statusFilter as ProjectStatus,
+      priority: priorityFilter as Priority,

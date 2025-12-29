@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
-import { User } from '@enterprise/shared'
+import { User, UserRole } from '@enterprise/shared'
 import { authService } from '@/services/authService'
 
 interface AuthContextType {
@@ -14,6 +14,7 @@ interface AuthContextType {
     firstName: string
     lastName: string
     password: string
+    role: UserRole
   }) => Promise<void>
 }
 
@@ -85,6 +86,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     firstName: string
     lastName: string
     password: string
+    role: UserRole
   }) => {
     try {
       const response = await authService.register(userData)

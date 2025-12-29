@@ -14,7 +14,7 @@ import logger from '@/utils/logger';
 export const validateBody = <T>(schema: ZodSchema<T>) => {
   return (req: Request, res: Response, next: NextFunction): void => {
     try {
-      req.body = schema.parse(req.body);
+      req.body = schema.parse(req.body) as any;
       next();
     } catch (error) {
       if (error instanceof ZodError) {
@@ -54,7 +54,7 @@ export const validateBody = <T>(schema: ZodSchema<T>) => {
 export const validateQuery = <T>(schema: ZodSchema<T>) => {
   return (req: Request, res: Response, next: NextFunction): void => {
     try {
-      req.query = schema.parse(req.query);
+      req.query = schema.parse(req.query) as any;
       next();
     } catch (error) {
       if (error instanceof ZodError) {
@@ -94,7 +94,7 @@ export const validateQuery = <T>(schema: ZodSchema<T>) => {
 export const validateParams = <T>(schema: ZodSchema<T>) => {
   return (req: Request, res: Response, next: NextFunction): void => {
     try {
-      req.params = schema.parse(req.params);
+      req.params = schema.parse(req.params) as any;
       next();
     } catch (error) {
       if (error instanceof ZodError) {
