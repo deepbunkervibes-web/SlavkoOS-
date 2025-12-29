@@ -85,7 +85,7 @@ export function TasksPage() {
                 className="pl-10 input"
               />
             </div>
-            
+
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
@@ -187,12 +187,12 @@ export function TasksPage() {
                       )}
                     </td>
                     <td className="table-cell">
-                      <span className={`badge ${statusColors[task.status]}`}>
+                      <span className={`badge ${statusColors[task.status as keyof typeof statusColors]}`}>
                         {task.status.replace('_', ' ')}
                       </span>
                     </td>
                     <td className="table-cell">
-                      <span className={`badge ${priorityColors[task.priority]}`}>
+                      <span className={`badge ${priorityColors[task.priority as keyof typeof priorityColors]}`}>
                         {task.priority}
                       </span>
                     </td>
